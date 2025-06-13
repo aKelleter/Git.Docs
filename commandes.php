@@ -1,3 +1,6 @@
+<?php
+    require_once 'conf.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,12 +21,11 @@
         </h1>
         <h2 class="text-white">
             - Commandes génériques -
-        </h2>
-        <a class="mt-3 btn btn-outline-primary text-white" href="index.php">Home</a>
+        </h2>       
     </header>   
     
-    <main class="container mb-5">  
-        <a class="mb-3" target="_blank" href="https://www.atlassian.com/fr/git/glossary#commands">Atlassian (commandes)</a> 
+    <main class="container mb-5">          
+        <?php include'nav.php'; ?>        
         <nav class="navbar navbar-expand-md navbar-blue shadow-sm mt-4 mb-4 rounded-3">
             <div class="container">
                 <ul class="nav nav-pills flex-wrap gap-2 justify-content-center">                  
@@ -34,7 +36,7 @@
 
         <section id="restore" class="card card-blue mb-4">
             <div class="card-body">
-            <h2 class="card-title text-blue-dark h4">1. Remettre les fichiers modifiés (non committés) dans leur état initial (celui du dernier commit) et ainsi annuler toutes tes modifications locales non enregistrées.</h2>
+            <h2 class="card-title text-blue-dark h6">1. Remettre les fichiers modifiés (non committés) dans leur état initial (celui du dernier commit) et ainsi annuler toutes tes modifications locales non enregistrées.</h2>
             <pre><code class="language-bash">git restore .
 
 #Pour un fichier spécifique
@@ -48,36 +50,20 @@ git clean -fd
             </code></pre>
             </div>
         </section>
-
-        <div class="callout mb-4">      
-            <div>
-            <b>Sources</b><br>
-            <a href="https://kinsta.com/fr/base-de-connaissances/git-delete-branche-locale/" target="_blank" rel="noopener">Kinsta : supprimer une branche locale</a><br>
-            <a href="https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github/7475886-apprehendez-le-systeme-de-branches" target="_blank" rel="noopener">OpenClassrooms : appréhender le système de branches</a><br>
-            <a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref" target="_blank" rel="noopener">Git SCM : branches en bref</a>
-            </div>
-        </div>
-
+        <?php include'sources.php' ?>
     </main>
 
     <footer class="text-center text-secondary py-4">
-        Git.Docs 
+        Git.Docs - <?= APP_VER ?>
     </footer>
-
+    <button id="btn-top" class="btn btn-primary rounded-circle shadow"
+        style="position:fixed; bottom:2rem; left:calc(50% + 540px); display:none; z-index:1030;">
+        ↑
+    </button>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Highlight.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script>
-    hljs.highlightAll();
-    // Nav active dynamique
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function() {
-        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active', 'link-orange'));
-        this.classList.add('active', 'link-orange');
-        });
-    });
-    </script>
+    <script src="assets/js/main.js"></script>   
 </body>
 </html>

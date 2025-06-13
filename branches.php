@@ -1,3 +1,6 @@
+<?php
+    require_once 'conf.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,51 +21,49 @@
         </h1>
         <h2 class="text-white">
             - Travailler avec les branches -
-        </h2>
-        <a class="mt-3 btn btn-outline-primary text-white" href="index.php">Home</a>
+        </h2>       
     </header>
 
     <main class="container mb-5">  
-        <a target="_blank" href="https://www.atlassian.com/fr/git/tutorials/using-branches">Atlassian (branches)</a>       
-
+        <?php include'nav.php'; ?>
         <nav class="navbar navbar-expand-md navbar-blue shadow-sm mt-4 mb-4 rounded-3">
-            <div class="container">
-                <ul class="nav nav-pills flex-wrap gap-2 justify-content-center">
-                    <li class="nav-item"><a class="nav-link link-orange active" href="#lister-local">Lister local</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#lister-all">Lister local &amp; distant</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#creer">Créer une branche</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#creer-bascule">Créer &amp; basculer</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#changer">Changer de branche</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#push">Pousser une branche</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#fusion">Fusionner</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#supprimer-local">Supprimer locale</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#supprimer-distant">Supprimer distante</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#log">Commits (ligne)</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#reset-1">Annuler dernier commit</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#reset-n">Annuler N commits</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#recup-dist">Récupérer branche distante</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#restore">Remettre les fichiers modifiés (non committés) dans leur état initial</a></li>
+            <div class="container nav-scroll">
+                <ul class="nav nav-pills flex-wrap gap-1 justify-content-center">
+                <li class="nav-item"><a class="nav-link link-orange active" href="#lister-local">Lister local</a></li>
+                <li class="nav-item"><a class="nav-link" href="#lister-all">Lister local &amp; distant</a></li>
+                <li class="nav-item"><a class="nav-link" href="#creer">Créer une branche</a></li>
+                <li class="nav-item"><a class="nav-link" href="#creer-bascule">Créer &amp; basculer</a></li>
+                <li class="nav-item"><a class="nav-link" href="#changer">Changer de branche</a></li>
+                <li class="nav-item"><a class="nav-link" href="#push">Pousser une branche</a></li>
+                <li class="nav-item"><a class="nav-link" href="#fusion">Fusionner</a></li>
+                <li class="nav-item"><a class="nav-link" href="#supprimer-local">Supprimer locale</a></li>
+                <li class="nav-item"><a class="nav-link" href="#supprimer-distant">Supprimer distante</a></li>
+                <li class="nav-item"><a class="nav-link" href="#log">Commits (ligne)</a></li>
+                <li class="nav-item"><a class="nav-link" href="#reset-1">Annuler dernier commit</a></li>
+                <li class="nav-item"><a class="nav-link" href="#reset-n">Annuler N commits</a></li>
+                <li class="nav-item"><a class="nav-link" href="#recup-dist">Récupérer branche distante</a></li>                    
                 </ul>
             </div>
         </nav>
 
+
         <section id="lister-local" class="card card-blue mb-4">
             <div class="card-body">
-                <h2 class="card-title text-blue-dark h4">1. Lister les branches du dépôt local</h2>
+                <h2 class="card-title text-blue-dark h6">1. Lister les branches du dépôt local</h2>
                 <pre><code class="language-bash">git branch</code></pre>
             </div>
         </section>
 
         <section id="lister-all" class="card card-blue mb-4">
             <div class="card-body">
-                <h2 class="card-title text-blue-dark h4">2. Lister les branches du dépôt local et distant</h2>
+                <h2 class="card-title text-blue-dark h6">2. Lister les branches du dépôt local et distant</h2>
                 <pre><code class="language-bash">git branch -a</code></pre>
             </div>
         </section>
 
         <section id="creer" class="card card-blue mb-4">
             <div class="card-body">
-                <h2 class="card-title text-blue-dark h4">3. Créer une branche</h2>
+                <h2 class="card-title text-blue-dark h6">3. Créer une branche</h2>
                 <pre><code class="language-bash">git branch [nom_de_la_nouvelle_branche]
 # exemple : git branch colors
                 </code></pre>
@@ -71,7 +72,7 @@
 
         <section id="creer-bascule" class="card card-blue mb-4">
             <div class="card-body">
-                <h2 class="card-title text-blue-dark h4">4. Créer une branche et basculer dessus directement</h2>
+                <h2 class="card-title text-blue-dark h6">4. Créer une branche et basculer dessus directement</h2>
                 <pre><code class="language-bash">git checkout -b [nom_de_la_nouvelle_branche]
 # exemple :  git checkout -b colors
                 </code></pre>
@@ -80,7 +81,7 @@
 
         <section id="changer" class="card card-blue mb-4">
             <div class="card-body">
-            <h2 class="card-title text-blue-dark h4">5. Changer de branche</h2>
+            <h2 class="card-title text-blue-dark h6">5. Changer de branche</h2>
             <pre><code class="language-bash">
 git checkout [nom_de_la_branche]
 # exemple : git checkout colors
@@ -93,14 +94,14 @@ git switch [nom_de_la_branche]
 
         <section id="push" class="card card-blue mb-4">
             <div class="card-body">
-            <h2 class="card-title text-blue-dark h4">6. Pousser une branche locale sur un dépôt distant</h2>
+            <h2 class="card-title text-blue-dark h6">6. Pousser une branche locale sur un dépôt distant</h2>
             <pre><code class="language-bash">git push -u [dépôt_distant] [nom_de_la_branche]</code></pre>
             </div>
         </section>
 
         <section id="fusion" class="card card-blue mb-4">
             <div class="card-body">
-            <h2 class="card-title text-blue-dark h4">7. Fusionner sa branche locale sur la branche principale (main/master)</h2>
+            <h2 class="card-title text-blue-dark h6">7. Fusionner sa branche locale sur la branche principale (main/master)</h2>
             <pre><code class="language-bash"># On se place d'abord sur la branche principale
 git switch main/master
 
@@ -113,7 +114,7 @@ git merge [nom_de_la_branche_a_fusionner]
 
         <section id="supprimer-local" class="card card-blue mb-4">
             <div class="card-body">
-            <h2 class="card-title text-blue-dark h4">8. Supprimer une branche locale</h2>
+            <h2 class="card-title text-blue-dark h6">8. Supprimer une branche locale</h2>
             <pre><code class="language-bash"># Il faut au préalable se placer sur la branche principale (main) :  
 git switch main
 git branch -d [nom_de_la_branche]
@@ -124,7 +125,7 @@ git branch -d [nom_de_la_branche]
 
         <section id="supprimer-distant" class="card card-blue mb-4">
             <div class="card-body">
-            <h2 class="card-title text-blue-dark h4">9. Supprimer une branche distante</h2>
+            <h2 class="card-title text-blue-dark h6">9. Supprimer une branche distante</h2>
             <pre><code class="language-bash">git push [nom_du_dépôt_distant(souvent origin)] -d [nom_de_la_branche]
 # exemple : git push origin -d colors
 
@@ -137,7 +138,7 @@ git push origin --delete [nom_de_la_branche]
 
         <section id="log" class="card card-blue mb-4">
             <div class="card-body">
-            <h2 class="card-title text-blue-dark h4">10. Lister les commits sur une seule ligne</h2>
+            <h2 class="card-title text-blue-dark h6">10. Lister les commits sur une seule ligne</h2>
             <pre><code class="language-bash">git log --oneline --graph
 
 #EXEMPLE :
@@ -154,7 +155,7 @@ git push origin --delete [nom_de_la_branche]
 
         <section id="reset-1" class="card card-blue mb-4">
             <div class="card-body">
-            <h2 class="card-title text-blue-dark h4">11. Revenir un commit en arrière, annuler le commit le plus récent</h2>
+            <h2 class="card-title text-blue-dark h6">11. Revenir un commit en arrière, annuler le commit le plus récent</h2>
             <pre><code class="language-bash">git reset --hard HEAD^
 
 #Exemple :
@@ -165,7 +166,7 @@ HEAD is now at 5011371 Test_color 2 Nav_bar
 
         <section id="reset-n" class="card card-blue mb-4">
             <div class="card-body">
-            <h2 class="card-title text-blue-dark h4">12. Revenir de 2 à n commits en arrière avec le tilde ~</h2>
+            <h2 class="card-title text-blue-dark h6">12. Revenir de 2 à n commits en arrière avec le tilde ~</h2>
             <pre><code class="language-bash">git reset --hard HEAD~2
 
 #Exemple :
@@ -176,7 +177,7 @@ HEAD is now at 77401a5 Minor update on detenu-functions.php
 
         <section id="recup-dist" class="card card-blue mb-4">
             <div class="card-body">
-            <h2 class="card-title text-blue-dark h4">13. Récupérer une branche distante dans le dépôt local</h2>
+            <h2 class="card-title text-blue-dark h6">13. Récupérer une branche distante dans le dépôt local</h2>
             <pre><code class="language-bash">git fetch [nom_du_dépôt_distant] [nom_de_la_branche_distante]:[nom_de_la_branche_locale]
 
 # Se positionner ensuite sur la branche fraîchement récupérée 
@@ -185,53 +186,20 @@ git checkout [nom_de_la_branche_locale]
             </code></pre>
             </div>
         </section>
-
-        <section id="restore" class="card card-blue mb-4">
-            <div class="card-body">
-            <h2 class="card-title text-blue-dark h4">14. Remettre les fichiers modifiés (non committés) dans leur état initial (celui du dernier commit) et ainsi annuler toutes tes modifications locales non enregistrées.</h2>
-            <pre><code class="language-bash">git restore .
-
-#Pour un fichier spécifique
-git restore chemin/vers/fichier
-
-#Pour revenir à une version propre sur la branche (et aussi enlever les fichiers non trackés) :
-git restore .
-git clean -fd
-
-#Attention, git clean -fd supprime tout fichier/dossier non suivi par git, donc prudence !
-            </code></pre>
-            </div>
-        </section>
-
-        <div class="callout mb-4">      
-            <div>
-            <b>Sources</b><br>
-            <a href="https://kinsta.com/fr/base-de-connaissances/git-delete-branche-locale/" target="_blank" rel="noopener">Kinsta : supprimer une branche locale</a><br>
-            <a href="https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github/7475886-apprehendez-le-systeme-de-branches" target="_blank" rel="noopener">OpenClassrooms : appréhender le système de branches</a><br>
-            <a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Les-branches-en-bref" target="_blank" rel="noopener">Git SCM : branches en bref</a>
-            </div>
-        </div>
-
+        <?php $q = 'branches'; require_once'sources.php' ?>
     </main>
 
     <footer class="text-center text-secondary py-4">
-        Git.Docs 
+        Git.Docs - <?= APP_VER ?>
     </footer>
-
+    <button id="btn-top" class="btn btn-primary rounded-circle shadow"
+        style="position:fixed; bottom:2rem; left:calc(50% + 540px); display:none; z-index:1030;">
+        ↑
+    </button>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Highlight.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script>
-    hljs.highlightAll();
-    // Nav active dynamique
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function() {
-        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active', 'link-orange'));
-        this.classList.add('active', 'link-orange');
-        });
-    });
-    </script>
+    <script src="assets/js/main.js"></script>   
 </body>
 </html>
