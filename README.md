@@ -67,7 +67,7 @@ Tout est modifiable dans les fichiers HTML/PHP et `assets/css/styles.css`.
 
 ## 🧑‍💻 Auteur
 
-Projet réalisé par [Alain Kelleter] (Alain Kelleter)
+Projet réalisé par [Alain Kelleter]
 
 ---
 
