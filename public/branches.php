@@ -1,5 +1,7 @@
 <?php
-    require_once 'conf.php';
+    declare(strict_types=1);    
+    require_once __DIR__ . '/../autoload.php';  
+    use App\UI\Layout;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -12,20 +14,12 @@
   <!-- Highlight.js -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
   <!-- Custom palette -->
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/styles.css">
 </head>
 <body class="bg-blue-light">
-    <header class="py-5 mb-4 text-center header-custom  shadow-sm">
-        <h1 class="display-5 fw-bold mb-0 text-white">
-            Git : Docs
-        </h1>
-        <h2 class="text-white">
-            - Travailler avec les branches -
-        </h2>       
-    </header>
-
+    <?= Layout::getHeader('./', 'Travailler avec les branche'); ?>  
     <main class="container mb-5">  
-        <?php include'nav.php'; ?>
+        <?= Layout::getNavigation(); ?>
         <nav class="navbar navbar-expand-md navbar-blue shadow-sm mt-4 mb-4 rounded-3  shadow-sm">
             <div class="container nav-scroll">
                 <ul class="nav nav-pills flex-wrap gap-1 justify-content-center">
@@ -187,11 +181,8 @@ git checkout [nom_de_la_branche_locale]
             </div>
         </section>
         <?php $q = 'branches'; require_once'sources.php' ?>
+        <?= Layout::getFooter(); ?>
     </main>
-
-    <footer class="text-center text-secondary py-4">
-        Git.Docs - <?= APP_VER ?>
-    </footer>
     <button id="btn-top" class="btn btn-primary rounded-circle shadow"
         style="position:fixed; bottom:2rem; left:calc(50% + 540px); display:none; z-index:1030;">
         ↑
@@ -200,6 +191,6 @@ git checkout [nom_de_la_branche_locale]
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Highlight.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="assets/js/main.js"></script>   
+    <script src="<?= BASE_URL ?>/assets/js/main.js"></script>   
 </body>
 </html>
