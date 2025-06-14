@@ -1,57 +1,20 @@
 <?php
-    require_once 'conf.php';
-?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>GIT.Docs</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Highlight.js -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-  <!-- Custom palette -->
-  <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body>    
-    <header class="py-5 mb-4 text-center header-custom">
-        <h1 class="display-5 fw-bold mb-0 text-white">
-            Git : Docs
-        </h1>
-    </header>
-    <main class="container mb-5"> 
-    <?php include'nav.php'; ?>
+declare(strict_types=1);
 
-    <div class="alert alert-info mt-4 shadow-sm">
-        <h2 class="h4 text-center">Bienvenue sur Git Docs</h2>
-        <hr>
-        <p class="text-justify">
-            Ce site a pour objectif de rassembler et de présenter, de façon claire et synthétique, les principales commandes Git utiles au quotidien.              
-            Que vous soyez débutant ou utilisateur confirmé, vous trouverez ici des rappels rapides pour manipuler les branches, gérer vos commits, ou retrouver les commandes essentielles à l’aide de quelques clics.
-        </p>
-        <p class="mb-0 text-center">
-            N’hésitez pas à explorer le menu pour accéder aux différentes rubriques. Bonne navigation&nbsp;!
-        </p>
-    </div>
+/**
+ * Point d'entrée simplifié pour les débutants
+ * -------------------------------------------
+ * Ce fichier redirige silencieusement vers le vrai point d'entrée
+ * situé dans le dossier "public/", sans modifier l'URL affichée.
+ * 
+ * Avantages :
+ * - Aucun besoin de configurer Apache ou faire un lien symbolique
+ * - Compatible avec un hébergement classique
+ * - Permet de garder une structure professionnelle (public/, src/, etc.)
+ */
 
-    <div class="alert alert-secondary shadow-sm">
-        <h6>Découvrir Git</h6>
-        <ul style="list-style: none; padding-left: 0;">
-            <li><a href="https://git-scm.com/docs/git/fr">Git-scm.com (français)</a></li>
-            <li><a target="_blank" href="https://www.atlassian.com/fr/git/glossary#commands">Atlassian (commandes)</a> </li>
-            <li><a target="_blank" href="https://www.atlassian.com/fr/git/tutorials/using-branches">Atlassian (branches)</a></li>
-        </ul>
-    </div>
+// Se déplacer dans le dossier "public"
+chdir(__DIR__ . '/public');
 
-    </main>
-    <footer class="text-center text-secondary py-4">
-        Git.Docs - <?= APP_VER ?>
-    </footer>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Highlight.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="assets/js/main.js"></script>   
-</body>
-</html>
+// Charger le vrai point d’entrée
+require_once 'index.php';

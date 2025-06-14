@@ -1,77 +1,69 @@
-# Git Docs
+# Git.Docs — Documentation Git simplifiée
 
-Un mini-site web pour retrouver rapidement les commandes Git les plus utiles au quotidien, présenté de façon claire et synthétique.  
-Que tu sois débutant·e ou utilisateur·rice confirmé·e, tu trouveras ici des rappels rapides pour manipuler les branches, gérer les commits ou réviser les commandes essentielles.
-
----
-
-## 🚀 Fonctionnalités
-
-- **Navigation rapide** : Accède en un clic à toutes les rubriques principales (branches, fusion, suppression…)
-- **Commandes prêtes à copier** : Un bouton permet de copier chaque commande facilement dans ton terminal.
-- **Interface responsive** : Adaptée à l’ordinateur comme au mobile.
-- **Liens vers des ressources** : Pour aller plus loin avec Git (OpenClassrooms, Atlassian, Git-SCM…)
+> Un petit projet PHP conçu pour apprendre à organiser proprement une application web, sans framework.
 
 ---
 
-## 📂 Structure du projet
+## 📁 Structure du projet
 
 ```
-/
-├── index.php         # Page d’accueil, présentation du projet
-├── commandes.php     # Les commandes essentielles Git
-├── branches.php      # Focus sur le travail avec les branches
-├── conf.php          # Configuration de l'application
-├── nav.php           # Menu de navigation de l'application
-├── sources.php       # Menu "sources" de l'application
+Git.Docs/
+├── index.php               ← Redirige vers `public/index.php` (aucune config Apache nécessaire)
+├── autoload.php            ← Charge la configuration et les composants UI
+├── config/
+│   └── conf.php            ← Constantes globales de l'application (nom, version, etc.)
+├── public/
+│   ├── index.php           ← Point d'entrée principal de l'application
+│   ├── commandes.php       ← Pages de contenu
+│   ├── ...                 ← (autres pages comme `branches.php`, etc.)
+├── src/
+│   └── UI/
+│       └── Layout.php      ← Composants HTML (header/footer) regroupés en classe statique
 ├── assets/
-│   ├── css/styles.css    # Feuilles de style personnalisées
-│   └── js/main.js        # Script principal (highlight, boutons copier…)
-|   └── img/favicon.png   # favicon de l'application
-└── README.md         # Ce fichier
+│   ├── css/
+│   │   └── styles.css      ← Feuilles de styles personnalisées
+│   └── js/
+│       └── main.js         ← Fichiers JavaScript (si besoin)
 ```
 
 ---
 
-## 🛠️ Installation et utilisation
+## 🧩 Comment ça fonctionne ?
 
-Aucune installation requise :  
-1. Clone ce dépôt ou copie simplement les fichiers sur ton espace web ou en local.
-2. Ouvre `index.php` dans ton navigateur ou sur ton serveur local (XAMPP, WAMP, etc).
-3. Clique sur les différentes rubriques pour découvrir et copier les commandes.
-
----
-
-## 💡 Astuces
-
-- Le menu est compact et accessible en haut de chaque page.
-- Les blocs de commandes disposent d’un bouton “copier” pour gagner du temps.
-- L’interface est volontairement minimaliste pour aller à l’essentiel.
+- Ouvre ton navigateur sur [`http://localhost/Git.Docs`](http://localhost/Git.Docs)
+- Le fichier `index.php` à la racine redirige **en toute transparence** vers `public/index.php`
+- Le code PHP charge :
+  - La configuration (`config/conf.php`)
+  - Les composants d’interface (`src/UI/Layout.php`)
+- Le rendu HTML utilise la classe `Layout::getHeader()` et `Layout::getFooter()` pour structurer les pages
 
 ---
 
-## 🎨 Personnalisation
+## 🎓 Objectif pédagogique
 
-Tu veux modifier les couleurs, ajouter des commandes ou créer de nouvelles rubriques ?  
-Tout est modifiable dans les fichiers HTML/PHP et `assets/css/styles.css`.
-
----
-
-## 📚 Ressources recommandées
-
-- [La doc officielle Git](https://git-scm.com/book/fr/v2)
-- [Les tutoriels Atlassian](https://www.atlassian.com/fr/git/tutorials)
-- [Le cours OpenClassrooms](https://openclassrooms.com/fr/courses/7162856-gerez-du-code-avec-git-et-github)
+Ce projet montre :
+- Comment organiser un projet PHP de manière **propre et modulaire**
+- Comment séparer :
+  - le code source (`src/`)
+  - la configuration (`config/`)
+  - les fichiers accessibles par le navigateur (`public/`)
+- Comment structurer des composants HTML réutilisables dans une **classe statique**
+- Comment charger le tout avec un simple fichier `autoload.php` sans Composer
 
 ---
 
-## 🧑‍💻 Auteur
+## 🚀 Et après ?
 
-Projet réalisé par [Alain Kelleter]
+Une fois à l’aise avec cette base, on pourra :
+- Ajouter Composer pour autoload automatique
+- Créer un petit système de routage (`?page=...`)
+- Ajouter un moteur de templates (facultatif)
+- Se connecter à une base de données
+- Gérer des formulaires
 
 ---
 
-## 🏷️ Licence
+## 📄 Licence
 
-Projet open-source, à réutiliser/modifier selon tes besoins personnels ou pédagogiques !
-
+Ce projet est libre d’usage à des fins pédagogiques, d’apprentissage ou d’évolution personnelle.  
+Feel free to fork! ✌️
