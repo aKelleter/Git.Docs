@@ -14,7 +14,7 @@
   <!-- Custom palette -->
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="bg-blue-light">    
+<body>    
     <header class="py-5 mb-4 text-center header-custom">
         <h1 class="display-5 fw-bold mb-0 text-white">
             Git : Docs
@@ -23,7 +23,7 @@
     <main class="container mb-5"> 
     <?php include'nav.php'; ?>
 
-    <div class="alert alert-info mt-4">
+    <div class="alert alert-info mt-4 shadow-sm">
         <h2 class="h4 text-center">Bienvenue sur Git Docs</h2>
         <hr>
         <p class="text-justify">
@@ -35,9 +35,10 @@
         </p>
     </div>
 
-    <div class="alert alert-secondary">
-        <h6>Découvrir Git avec Atlassian</h6>
+    <div class="alert alert-secondary shadow-sm">
+        <h6>Découvrir Git</h6>
         <ul style="list-style: none; padding-left: 0;">
+            <li><a href="https://git-scm.com/docs/git/fr">Git-scm.com (français)</a></li>
             <li><a target="_blank" href="https://www.atlassian.com/fr/git/glossary#commands">Atlassian (commandes)</a> </li>
             <li><a target="_blank" href="https://www.atlassian.com/fr/git/tutorials/using-branches">Atlassian (branches)</a></li>
         </ul>

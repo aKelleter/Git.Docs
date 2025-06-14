@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="bg-blue-light">
-    <header class="py-5 mb-4 text-center header-custom">
+    <header class="py-5 mb-4 text-center header-custom  shadow-sm">
         <h1 class="display-5 fw-bold mb-0 text-white">
             Git : Docs
         </h1>
@@ -26,7 +26,7 @@
 
     <main class="container mb-5">  
         <?php include'nav.php'; ?>
-        <nav class="navbar navbar-expand-md navbar-blue shadow-sm mt-4 mb-4 rounded-3">
+        <nav class="navbar navbar-expand-md navbar-blue shadow-sm mt-4 mb-4 rounded-3  shadow-sm">
             <div class="container nav-scroll">
                 <ul class="nav nav-pills flex-wrap gap-1 justify-content-center">
                 <li class="nav-item"><a class="nav-link link-orange active" href="#lister-local">Lister local</a></li>
@@ -47,21 +47,21 @@
         </nav>
 
 
-        <section id="lister-local" class="card card-blue mb-4">
+        <section id="lister-local" class="card card-blue mb-4 shadow-sm">
             <div class="card-body">
                 <h2 class="card-title text-blue-dark h6">1. Lister les branches du dépôt local</h2>
                 <pre><code class="language-bash">git branch</code></pre>
             </div>
         </section>
 
-        <section id="lister-all" class="card card-blue mb-4">
+        <section id="lister-all" class="card card-blue mb-4 shadow-sm">
             <div class="card-body">
                 <h2 class="card-title text-blue-dark h6">2. Lister les branches du dépôt local et distant</h2>
                 <pre><code class="language-bash">git branch -a</code></pre>
             </div>
         </section>
 
-        <section id="creer" class="card card-blue mb-4">
+        <section id="creer" class="card card-blue mb-4 shadow-sm">
             <div class="card-body">
                 <h2 class="card-title text-blue-dark h6">3. Créer une branche</h2>
                 <pre><code class="language-bash">git branch [nom_de_la_nouvelle_branche]
@@ -70,7 +70,7 @@
             </div>
         </section>
 
-        <section id="creer-bascule" class="card card-blue mb-4">
+        <section id="creer-bascule" class="card card-blue mb-4 shadow-sm">
             <div class="card-body">
                 <h2 class="card-title text-blue-dark h6">4. Créer une branche et basculer dessus directement</h2>
                 <pre><code class="language-bash">git checkout -b [nom_de_la_nouvelle_branche]
@@ -79,7 +79,7 @@
             </div>
         </section>
 
-        <section id="changer" class="card card-blue mb-4">
+        <section id="changer" class="card card-blue mb-4 shadow-sm">
             <div class="card-body">
             <h2 class="card-title text-blue-dark h6">5. Changer de branche</h2>
             <pre><code class="language-bash">
@@ -92,14 +92,14 @@ git switch [nom_de_la_branche]
             </div>
         </section>
 
-        <section id="push" class="card card-blue mb-4">
+        <section id="push" class="card card-blue mb-4 shadow-sm">
             <div class="card-body">
             <h2 class="card-title text-blue-dark h6">6. Pousser une branche locale sur un dépôt distant</h2>
             <pre><code class="language-bash">git push -u [dépôt_distant] [nom_de_la_branche]</code></pre>
             </div>
         </section>
 
-        <section id="fusion" class="card card-blue mb-4">
+        <section id="fusion" class="card card-blue mb-4 shadow-sm">
             <div class="card-body">
             <h2 class="card-title text-blue-dark h6">7. Fusionner sa branche locale sur la branche principale (main/master)</h2>
             <pre><code class="language-bash"># On se place d'abord sur la branche principale
@@ -112,7 +112,7 @@ git merge [nom_de_la_branche_a_fusionner]
             </div>
         </section>
 
-        <section id="supprimer-local" class="card card-blue mb-4">
+        <section id="supprimer-local" class="card card-blue mb-4 shadow-sm">
             <div class="card-body">
             <h2 class="card-title text-blue-dark h6">8. Supprimer une branche locale</h2>
             <pre><code class="language-bash"># Il faut au préalable se placer sur la branche principale (main) :  
@@ -136,7 +136,7 @@ git push origin --delete [nom_de_la_branche]
             </div>
         </section>
 
-        <section id="log" class="card card-blue mb-4">
+        <section id="log" class="card card-blue mb-4 shadow-sm">
             <div class="card-body">
             <h2 class="card-title text-blue-dark h6">10. Lister les commits sur une seule ligne</h2>
             <pre><code class="language-bash">git log --oneline --graph
@@ -153,7 +153,7 @@ git push origin --delete [nom_de_la_branche]
             </div>
         </section>
 
-        <section id="reset-1" class="card card-blue mb-4">
+        <section id="reset-1" class="card card-blue mb-4 shadow-sm">
             <div class="card-body">
             <h2 class="card-title text-blue-dark h6">11. Revenir un commit en arrière, annuler le commit le plus récent</h2>
             <pre><code class="language-bash">git reset --hard HEAD^
@@ -164,7 +164,7 @@ HEAD is now at 5011371 Test_color 2 Nav_bar
             </div>
         </section>
 
-        <section id="reset-n" class="card card-blue mb-4">
+        <section id="reset-n" class="card card-blue mb-4 shadow-sm">
             <div class="card-body">
             <h2 class="card-title text-blue-dark h6">12. Revenir de 2 à n commits en arrière avec le tilde ~</h2>
             <pre><code class="language-bash">git reset --hard HEAD~2
@@ -175,7 +175,7 @@ HEAD is now at 77401a5 Minor update on detenu-functions.php
             </div>
         </section>
 
-        <section id="recup-dist" class="card card-blue mb-4">
+        <section id="recup-dist" class="card card-blue mb-4 shadow-sm">
             <div class="card-body">
             <h2 class="card-title text-blue-dark h6">13. Récupérer une branche distante dans le dépôt local</h2>
             <pre><code class="language-bash">git fetch [nom_du_dépôt_distant] [nom_de_la_branche_distante]:[nom_de_la_branche_locale]

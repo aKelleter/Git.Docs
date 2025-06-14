@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-blue shadow-sm mb-4 rounded-3">
+<nav class="navbar navbar-expand-md navbar-blue shadow-sm mb-4 rounded-3 shadow-sm">
     <div class="container">
         <ul class="nav nav-pills justify-content-center">
             <li class="nav-item">
@@ -10,6 +10,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li><a class="dropdown-item" href="commandes.php">Les commandes</a></li>
+                <li><a class="dropdown-item" href="restaurer.php">Restaurer</a></li>
                 <li><a class="dropdown-item" href="branches.php">Les branches</a></li>
                 </ul>
             </li>

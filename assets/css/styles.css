@@ -14,13 +14,16 @@ body {
   margin: 0 auto;      /* Centrage */
   font-family: 'Montserrat', sans-serif;
   font-size: 1.1em;
-  line-height: 1.6;
+  line-height: 1.6;  
+  transition: background 0.3s, color 0.3s;
+  min-height: 100vh;   
+  background: 
+      url("data:image/svg+xml;utf8,<svg width='50' height='50' viewBox='0 0 50 50' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='10' cy='10' r='10' fill='%23b6c6d9' opacity='0.18'/></svg>"),
+      linear-gradient(135deg,#abebff 5%, #97c2d8 85%);
+  background-repeat: repeat, no-repeat;
+  background-size: 50px 50px, cover;
 }
 
-/* BODY & BACKGROUND */
-body.bg-blue-light {
-  background: var(--blue-very-light);
-}
 
 .text-justify {
     text-align: justify;
