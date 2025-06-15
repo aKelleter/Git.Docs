@@ -4,7 +4,6 @@ Ce document recense les améliorations techniques a apportées au projet **Git.D
 
 VERSION ACTUELLE
 ![Version](https://img.shields.io/badge/version-1.2.0-blue)
-[→ Voir le dépôt GitHub](https://github.com/aKelleter/Git.Docs)
 
 ---
 
