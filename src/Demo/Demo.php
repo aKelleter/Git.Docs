@@ -1,5 +1,5 @@
 <?php
-namespace App\Test;
+namespace App\Demo;
 
 final class Demo {
     public static function hello(): string {

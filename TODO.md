@@ -10,8 +10,8 @@ VERSION ACTUELLE
 ## ✅ 1. Organisation et propreté du code
 
 ### 🔹 Autoload maison plus intelligent
-- Autoloader récursif pour charger automatiquement les classes dans `src/` (plus de `require_once` manuel).
-- Regroupement des classes par domaine : `Router`, `UI`, `Helpers`, `Services`, etc.
+- [FAIT] Autoloader récursif pour charger automatiquement les classes dans `src/` (plus de `require_once` manuel).
+- [FAIT] Regroupement des classes par domaine : `Router`, `UI`, `Helpers`, `Services`, etc.
 
 ### 🔹 Variables d’environnement (au lieu de `conf.php`)
 - Chargement d’un fichier `.env` ou `.env.php` **non versionné** avec les constantes sensibles.

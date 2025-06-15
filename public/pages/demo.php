@@ -2,9 +2,9 @@
 declare(strict_types=1);    
 
 use App\UI\Layout;
-use App\Test\Demo;
+use App\Demo\Demo;
 
-$pageTitle = 'Test';
+$pageTitle = 'Demo';
 ?>
 <?= Layout::getHeader($pageTitle) ?>
 <body>       
