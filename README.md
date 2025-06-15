@@ -1,7 +1,6 @@
 # Git.Docs
 
 ![Version](https://img.shields.io/badge/version-1.3.0-blue)
-[→ Voir le dépôt GitHub](https://github.com/aKelleter/Git.Docs)
 
 **Git.Docs** est une mini-application PHP qui synthétise les principales commandes Git utiles au quotidien, avec une interface claire, responsive et pédagogique.
 
@@ -68,11 +67,7 @@ cd Git.Docs
 
 Les classes sont chargées automatiquement grâce à l’autoloader défini dans `autoload.php`.
 
-Chaque fichier de page comme `restaurer.php` commence par :
-
-```php
-require_once __DIR__ . '/../../bootstrap.php';
-```
+L'autoloader est chargé dans le fichier 'public/pages/index.php'
 
 Ce fichier `bootstrap.php` centralise :
 
