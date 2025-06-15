@@ -1,5 +1,9 @@
+<<<<<<< Updated upstream
 # Fichiers inutiles spécifiques à macOS
 .DS_Store
 
 # Logs d'erreur
+=======
+.DS_Store
+>>>>>>> Stashed changes
 error_log
