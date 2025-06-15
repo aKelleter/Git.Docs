@@ -5,7 +5,8 @@ namespace App\UI;
 
 final class Layout
 {
-    
+ 
+
     
     /**
      * Retourne l'entête HTML de la page
@@ -72,37 +73,63 @@ final class Layout
         HTML;
     }
 
-    /**
-     * Retourne le menu de navigation principal de l'application
-     * 
-     * @param string $path 
-     * @return string 
-     */
-    public static function getNavigation(string $path='./') : string
-    {       
-        $base_url = BASE_URL;
+    public static function getNavigation(): string
+    {
+        $base_url = rtrim(BASE_URL, '/');
+        $currentPage = \App\Router\Router::resolve();
+
+        $menuItems = require ROOT_PATH . '/config/menu.php';
+        $links = '';
+
+        foreach ($menuItems as $key => $item) {
+            // Menu simple
+            if (isset($item['url'])) {
+                $isActive = ($currentPage === $item['url']) ? 'active link-orange' : '';
+                $links .= <<<HTML
+                    <li class="nav-item">
+                        <a class="nav-link $isActive" href="{$base_url}/{$item['url']}">{$item['label']}</a>
+                    </li>
+                HTML;
+            }
+
+            // Menu déroulant
+            elseif (isset($item['dropdown'])) {
+                $dropdownId = 'dropdown-' . uniqid();
+                $dropdownLinks = '';
+
+                foreach ($item['dropdown'] as $slug => $label) {
+                    $active = ($slug === $currentPage) ? 'active link-orange' : '';
+                    $dropdownLinks .= <<<HTML
+                        <li><a class="dropdown-item $active" href="{$base_url}/$slug">$label</a></li>
+                    HTML;
+                }
+
+                $links .= <<<HTML
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="$dropdownId" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {$item['label']}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="$dropdownId">
+                            $dropdownLinks
+                        </ul>
+                    </li>
+                HTML;
+            }
+        }
+
         return <<<HTML
         <nav class="navbar navbar-expand-md navbar-blue shadow-sm mb-4 rounded-3 shadow-sm">
             <div class="container">
                 <ul class="nav nav-pills justify-content-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="$base_url/home">Sommaire</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                        Les rubriques
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="$base_url/commandes">Les commandes</a></li>
-                        <li><a class="dropdown-item" href="$base_url/restaurer">Restaurer</a></li>
-                        <li><a class="dropdown-item" href="$base_url/branches">Les branches</a></li>
-                        </ul>
-                    </li>
+                    $links
                 </ul>
             </div>
-        </nav>         
+        </nav>
         HTML;
     }
+
+
+
 
     /**
      * Retourne les liens de ressources de la page passée en paramètre
