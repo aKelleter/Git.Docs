@@ -1,25 +1,12 @@
 <?php
     declare(strict_types=1);    
-    require_once __DIR__ . '/../autoload.php';
-    //use function App\UI\getHeader;
-    //use function App\UI\getFooter;
+    require_once __DIR__ . '/../../autoload.php';
     use App\UI\Layout;
+    $pageTitle = 'Git.Docs';
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>GIT.Docs</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Highlight.js -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-  <!-- Custom palette -->
-  <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/styles.css">
-</head>
+<?= Layout::getHeader('../../', $pageTitle) ?>
 <body>    
-    <?= Layout::getHeader(); ?>
+    <?= Layout::getSectionHeader(); ?>
     <main class="container mb-5"> 
     <?= Layout::getNavigation(); ?>
 
@@ -43,13 +30,8 @@
             <li><a target="_blank" href="https://www.atlassian.com/fr/git/tutorials/using-branches">Atlassian (branches)</a></li>
         </ul>
     </div>
-    <?= Layout::getFooter(); ?>
+    <?= Layout::getFooter() ?>
     </main>
-    
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Highlight.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="<?= BASE_URL ?>/assets/js/main.js"></script>   
+    <?= Layout::getJSSection() ?>
 </body>
 </html>
