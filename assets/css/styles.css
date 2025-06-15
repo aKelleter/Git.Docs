@@ -7,6 +7,11 @@
   --blue: #1976d2;
   --blue-dark: #0d47a1;
   --orange: #ff9800;
+  --text: rgba(21,21,21,0.5);
+  --alert-info-bg: rgba(167, 210, 236, 0.5);
+  --alert-info-border: rgba(69, 89, 103, 0.5);
+  --alert-secondary-bg: rgba(190, 235, 234, 0.441);
+  --alert-secondary-border: rgba(55, 80, 79, 0.441);
 }
 
 body {
@@ -17,11 +22,10 @@ body {
   line-height: 1.6;  
   transition: background 0.3s, color 0.3s;
   min-height: 100vh;   
-  background: 
-      url("data:image/svg+xml;utf8,<svg width='50' height='50' viewBox='0 0 50 50' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='10' cy='10' r='10' fill='%23b6c6d9' opacity='0.18'/></svg>"),
-      linear-gradient(135deg,#def7ff 5%, #c8e7f7 85%);
-  background-repeat: repeat, no-repeat;
-  background-size: 50px 50px, cover;
+  background:     
+      linear-gradient(135deg,#fafeff 5%, #9fb8c3 50%);
+  /*background-repeat: repeat, no-repeat;*/
+  /*background-size: 50px 50px, cover;*/
 }
 
 
@@ -68,6 +72,20 @@ body {
   color: #fff !important;
 }
 
+.alert-info {
+  --bs-alert-color: var(--text);
+  --bs-alert-bg: var(--alert-info-bg);
+  --bs-alert-border-color: var(--alert-info-border);
+  --bs-alert-link-color: var(--bs-info-text-emphasis);
+}
+
+.alert-secondary {
+  --bs-alert-color: var(--text);
+  --bs-alert-bg: var(--alert-secondary-bg);
+  --bs-alert-border-color: var(--alert-secondary-border);
+  --bs-alert-link-color: var(--bs-info-text-emphasis);
+}
+
 @media (max-width: 900px) {
   .nav-scroll {
     overflow-x: auto;
@@ -86,10 +104,6 @@ body {
     white-space: nowrap;
   }
 }
-
-
-
-
 
 
 /* SECTIONS & CARDS */
