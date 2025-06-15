@@ -1,6 +1,10 @@
 # ✅ Git.Docs - Améliorations et Bonnes Pratiques
 
-Ce document recense les améliorations techniques apportées au projet **Git.Docs**, ainsi que des recommandations pour maintenir un code propre, modulaire et performant.
+Ce document recense les améliorations techniques a apportées au projet **Git.Docs**, ainsi que des recommandations pour faire évoluer l'application et maintenir un code propre, modulaire et performant.
+
+VERSION ACTUELLE
+![Version](https://img.shields.io/badge/version-1.2.0-blue)
+[→ Voir le dépôt GitHub](https://github.com/aKelleter/Git.Docs)
 
 ---
 
