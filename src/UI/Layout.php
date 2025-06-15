@@ -14,7 +14,7 @@ final class Layout
      * @param string $title 
      * @return string 
      */
-    public static function getHeader(string $path = './' , string $title = '') : string
+    public static function getHeader(string $title = '') : string
     {
         $base_url = BASE_URL;
         return <<<HTML

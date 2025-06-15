@@ -1,10 +1,10 @@
 <?php
     declare(strict_types=1);    
-    require_once __DIR__ . '/../../autoload.php';
+    
     use App\UI\Layout;
     $pageTitle = 'Git.Docs - Les branches';
 ?>
-<?= Layout::getHeader('../../', $pageTitle) ?>
+<?= Layout::getHeader($pageTitle) ?>
 <body class="bg-blue-light">
     <?= Layout::getSectionHeader('./', 'Travailler avec les branche'); ?>  
     <main class="container mb-5">  
