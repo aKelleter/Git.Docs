@@ -9,7 +9,7 @@ VERSION ACTUELLE
 
 ## ✅ 1. Organisation et propreté du code
 
-### 🔹 Autoload maison plus intelligent
+### 🔹 [FAIT] Autoload maison plus intelligent
 - [FAIT] Autoloader récursif pour charger automatiquement les classes dans `src/` (plus de `require_once` manuel).
 - [FAIT] Regroupement des classes par domaine : `Router`, `UI`, `Helpers`, `Services`, etc.
 
@@ -88,7 +88,7 @@ Layout::flash('Message enregistré !');
 
 ## ✅ 7. Navigation dynamique
 
-### 🔹 Menu généré automatiquement
+### 🔹 [FAIT] Menu généré automatiquement
 ```php
 $routes = [
   'home' => 'Sommaire',
