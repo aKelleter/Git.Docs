@@ -6,8 +6,6 @@ namespace App\UI;
 final class Layout
 {
  
-
-    
     /**
      * Retourne l'entête HTML de la page
      * `
