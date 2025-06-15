@@ -1,6 +1,6 @@
 # Git.Docs
 
-![Version](https://img.shields.io/badge/version-1.2.0-blue)
+![Version](https://img.shields.io/badge/version-1.3.0-blue)
 [→ Voir le dépôt GitHub](https://github.com/aKelleter/Git.Docs)
 
 **Git.Docs** est une mini-application PHP qui synthétise les principales commandes Git utiles au quotidien, avec une interface claire, responsive et pédagogique.
@@ -25,6 +25,7 @@
 ```
 Git.Docs/
 ├── autoload.php
+├── bootstrap.php          ← Point d’entrée central (autoload + constantes)
 ├── index.php              ← Redirige vers public/
 ├── includes/
 │   └── conf.php           ← Constantes : APP_NAME, BASE_URL, etc.
@@ -60,6 +61,24 @@ cd Git.Docs
 1. Placez le dossier dans `~/Sites/` (ou équivalent)
 2. Accédez à [http://localhost:8080/git.docs/](http://localhost:8080/git.docs/)
 3. Pas besoin de config Apache grâce à `index.php` à la racine
+
+---
+
+## 🧩 Chargement automatique des classes
+
+Les classes sont chargées automatiquement grâce à l’autoloader défini dans `autoload.php`.
+
+Chaque fichier de page comme `restaurer.php` commence par :
+
+```php
+require_once __DIR__ . '/../../bootstrap.php';
+```
+
+Ce fichier `bootstrap.php` centralise :
+
+- la définition de `ROOT_PATH`
+- l’appel à l’autoloader
+- tout ce qui devra être partagé globalement plus tard (ex: config, session, etc.)
 
 ---
 
