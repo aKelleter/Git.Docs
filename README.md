@@ -48,6 +48,7 @@ Git.Docs/
 ├── src/
 │   ├── UI/                ← Composants HTML
 │   └── Router/            ← Routage
+│   └── Demo/              ← Demo & tests
 ```
 
 ---
