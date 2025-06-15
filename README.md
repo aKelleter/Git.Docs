@@ -10,6 +10,7 @@
 
 - Interface responsive avec [Bootstrap 5.3](https://getbootstrap.com/)
 - Pages modulaires (`home.php`, `branches.php`, etc.)
+- Menu de navigation dynamique
 - Composants réutilisables via une classe `Layout`
 - Routage simple via une classe `Router`
 - Coloration syntaxique auto avec [highlight.js](https://highlightjs.org/)
