@@ -1,6 +1,6 @@
 # Git.Docs
 
-![Version](https://img.shields.io/badge/version-1.3.0-blue)
+![Version](https://img.shields.io/badge/version-1.4.0-blue)
 
 **Git.Docs** est une mini-application PHP qui synthétise les principales commandes Git utiles au quotidien, avec une interface claire, responsive et pédagogique.
 
@@ -28,6 +28,7 @@ Git.Docs/
 ├── index.php              ← Redirige vers public/
 ├── includes/
 │   └── conf.php           ← Constantes : APP_NAME, BASE_URL, etc.
+│   └── menu.php           ← Structure du menu sous la forme d'un tableau
 ├── public/
 │   ├── index.php          ← Point d’entrée principal
 │   ├── pages/
