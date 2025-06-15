@@ -7,4 +7,7 @@ require_once __DIR__ . '/config/conf.php';
 // Charger les fonctions UI (components)
 require_once __DIR__ . '/src/UI/Layout.php';        // La classe statique Layout
 
+// Charger la  la classe Router
+require_once __DIR__ . '/src/Router/Router.php';
+
 
