@@ -1,6 +1,6 @@
 # Git.Docs
 
-![Version](https://img.shields.io/badge/version-1.4.1-blue)
+![Version](https://img.shields.io/badge/version-1.6.0-blue)
 
 **Git.Docs** est une mini-application PHP qui synthétise les principales commandes Git utiles au quotidien, avec une interface claire, responsive et pédagogique.
 
@@ -17,39 +17,6 @@
 - Modules JavaScript en ES6 (`main.js`, `copy-button.js`, etc.)
 - Boutons "copier" et retour haut de page
 - Aucun framework requis, simple à déployer
-
----
-
-## 🗂️ Arborescence du projet
-
-```
-Git.Docs/
-├── autoload.php
-├── bootstrap.php          ← Point d’entrée central (autoload + constantes)
-├── index.php              ← Redirige vers public/
-├── includes/
-│   └── conf.php           ← Constantes : APP_NAME, BASE_URL, etc.
-│   └── menu.php           ← Structure du menu sous la forme d'un tableau
-├── public/
-│   ├── index.php          ← Point d’entrée principal
-│   ├── pages/
-│   │   ├── home.php
-│   │   ├── restaurer.php
-│   │   └── ...
-│   └── assets/
-│       ├── css/
-│       │   └── styles.css
-│       └── js/
-│           ├── main.js (module)
-│           ├── navigation.js
-│           ├── btn-top.js
-│           ├── highlight.js
-│           └── copy-button.js
-├── src/
-│   ├── UI/                ← Composants HTML
-│   └── Router/            ← Routage
-│   └── Demo/              ← Demo & tests
-```
 
 ---
 
