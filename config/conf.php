@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 const APP_NAME = "Git.Docs";
-const APP_VER = "1.5.1-16062025-2135";
+const APP_VER = "1.6.0-16062025-2145";
 const BASE_URL = '/Git.Docs';
 const DEFAULT_MODULE = 'git';
 
