@@ -1,7 +1,11 @@
 <?php
 declare(strict_types=1);    
 
+use App\Security\AccessControl;
 use App\UI\Layout;
+
+// Protection d'accès
+AccessControl::requireLogin();
 
 $pageTitle = 'Admin';
 ?>
@@ -10,7 +14,7 @@ $pageTitle = 'Admin';
     <?= Layout::getSectionHeader(); ?>     
     <main class="container mb-5"> 
         <?= Layout::getNavigation(); ?>
-        <div class="alert alert-success mt-5 shadow-sm">
+        <div class="main-div mt-5 p-2 bordered shadow-sm">
             <h2 class="h4 text-center">Administration</h2>
             <hr>
             <p>

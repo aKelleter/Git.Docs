@@ -6,3 +6,4 @@ use App\Auth\Auth;
 Auth::logout();
 header('Location: ' . BASE_URL . '/login/index');
 exit;
+

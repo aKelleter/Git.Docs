@@ -36,8 +36,8 @@ final class Router
         if (!empty($base) && stripos($uri, $base) === 0) {
             $uri = trim(substr($uri, strlen($base)), '/');
         }
-
-        return $uri ?: 'home';
+        // Si l'URI est vide, on retourne le module par défaut
+        return $uri ?: DEFAULT_MODULE.'/index';
     }
 
 

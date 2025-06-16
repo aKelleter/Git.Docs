@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\UI;
 
+use App\Auth\Auth;
+
 final class Layout
 {
  
@@ -80,8 +82,8 @@ final class Layout
     {
         $menu = require ROOT_PATH . '/config/menu.php';
         $base_url = BASE_URL;
+        $isAuth = isset($_SESSION['user']);
 
-        // URI actuelle sans base path
         $current = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
         $base = trim($base_url, '/');
         if (!empty($base) && str_starts_with($current, $base)) {
@@ -93,22 +95,44 @@ final class Layout
         $html .= '<ul class="nav nav-pills justify-content-center">';
 
         foreach ($menu as $key => $entry) {
-            if (is_array($entry)) {
-                $html .= '<li class="nav-item dropdown">';
-                $html .= '<a class="nav-link dropdown-toggle" href="#" id="dropdown-' . htmlspecialchars($key) . '" data-bs-toggle="dropdown" aria-expanded="false">' . htmlspecialchars($key) . '</a>';
-                $html .= '<ul class="dropdown-menu" aria-labelledby="dropdown-' . htmlspecialchars($key) . '">';
-                foreach ($entry as $subUrl => $subLabel) {
+            // -- Dropdown (menu groupé) ?
+            if (is_array($entry) && !array_key_exists('label', $entry)) {
+                $dropdownItems = '';
+                foreach ($entry as $subUrl => $subData) {
+                    if (!is_array($subData) || !isset($subData['label'])) continue;
+                    $auth = $subData['auth'] ?? null;
+                    if ($auth !== null && $auth !== $isAuth) continue;
+
                     $active = ($current === $subUrl) ? ' active link-orange' : '';
-                    $html .= '<li><a class="dropdown-item' . $active . '" href="' . $base_url . '/' . $subUrl . '">' . htmlspecialchars($subLabel) . '</a></li>';
+                    $dropdownItems .= '<li><a class="dropdown-item' . $active . '" href="' . $base_url . '/' . $subUrl . '">' . htmlspecialchars($subData['label']) . '</a></li>';
                 }
-                $html .= '</ul>';
-                $html .= '</li>';
-            } else {
+
+                if (!empty($dropdownItems)) {
+                    $html .= '<li class="nav-item dropdown">';
+                    $html .= '<a class="nav-link dropdown-toggle" href="#" id="dropdown-' . htmlspecialchars((string)$key) . '" data-bs-toggle="dropdown" aria-expanded="false">' . htmlspecialchars((string)$key) . '</a>';
+                    $html .= '<ul class="dropdown-menu" aria-labelledby="dropdown-' . htmlspecialchars((string)$key) . '">';
+                    $html .= $dropdownItems;
+                    $html .= '</ul></li>';
+                }
+            }
+
+            // -- Lien simple enrichi
+            elseif (is_array($entry) && isset($entry['label'])) {
+                $auth = $entry['auth'] ?? null;
+                if ($auth !== null && $auth !== $isAuth) continue;
+
                 $active = ($current === $key) ? ' active link-orange' : '';
                 $html .= '<li class="nav-item">';
-                $html .= '<a class="nav-link' . $active . '" href="' . $base_url . '/' . $key . '">' . htmlspecialchars($entry) . '</a>';
+                $html .= '<a class="nav-link' . $active . '" href="' . $base_url . '/' . $key . '">' . htmlspecialchars($entry['label']) . '</a>';
                 $html .= '</li>';
             }
+        }
+
+        // -- Ajouter le lien logout si connecté
+        if ($isAuth) {
+            $html .= '<li class="nav-item">';
+            $html .= '<a class="nav-link text-warning" href="' . $base_url . '/login/logout">Déconnexion</a>';
+            $html .= '</li>';
         }
 
         $html .= '</ul></div></nav>';
