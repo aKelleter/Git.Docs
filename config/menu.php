@@ -14,17 +14,13 @@ declare(strict_types=1);
  */
 
 return [
-    'home' => [
-        'label' => 'Sommaire',
-        'url'   => 'home',
+    'git/index' => 'Sommaire',
+    'Les rubriques' => [
+        'git/commandes' => 'Commandes Git',
+        'git/restaurer' => 'Restaurer',
+        'git/branches' => 'Les branches'
     ],
-    'rubriques' => [
-        'label' => 'Les rubriques',
-        'dropdown' => [ // sous-rubriques
-            'commandes'  => 'Les commandes',
-            'restaurer'  => 'Restaurer',
-            'branches'   => 'Les branches',
-        ],
-    ],
+    'adm/index' => 'Interface admin',
+    'demo/index' => 'Demo', 
+    'login/index' => 'Login'
 ];
-

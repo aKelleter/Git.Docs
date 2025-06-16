@@ -18,7 +18,7 @@ final class Router
     /**
      * Dossier contenant les pages à inclure.
      */
-    public static string $pagesDir = __DIR__ . '/../../public/pages/';
+    //public static string $pagesDir = __DIR__ . '/../../public/pages/';
 
     /**
      * Résout l'URL demandée en nom de page.
@@ -37,7 +37,7 @@ final class Router
             $uri = trim(substr($uri, strlen($base)), '/');
         }
 
-        return $uri ?: 'home';
+        return $uri ?: DEFAULT_MODULE.DS.'index';
     }
 
 
@@ -47,6 +47,29 @@ final class Router
      * 
      * @return string 
      */
+   
+
+    public static function render(): string
+    {
+        $page = self::resolve(); // ex: "backend/admin"
+        $file = ROOT_PATH . '/public/' . $page . '.php';
+
+        // Empêche les tentatives de traversal
+        if (str_contains($page, '..')) {
+            http_response_code(400);
+            return "<h1>Chemin non autorisé</h1>";
+        }
+
+        ob_start();
+        if (file_exists($file)) {
+            require $file;
+        } else {
+            http_response_code(404);
+            echo "<div class='alert alert-danger'>Page introuvable</div>";
+        }
+        return ob_get_clean();
+    }
+    /*
     public static function render(): string
     {
         $page = self::resolve();
@@ -61,4 +84,6 @@ final class Router
         }
         return ob_get_clean();
     }
+    */
+
 }

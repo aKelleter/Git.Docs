@@ -1,21 +1,20 @@
 <?php
 declare(strict_types=1);
 
-// Définition des constantes
+// Définition des constantes de base
 define('DS', DIRECTORY_SEPARATOR);
-define('ROOT_PATH', __DIR__);
+define('ROOT_PATH', __DIR__); // Important : défini avant d'inclure d'autres fichiers
 
-// Autoloader d'abord (important si la classe Connection est utilisée ensuite)
-require_once ROOT_PATH . '/autoload.php';
-
-// Configuration
+// Charger la configuration
 require_once ROOT_PATH . '/config/conf.php';
 require_once ROOT_PATH . '/config/database.php';
 
-use App\Database\Connection;
-use App\Auth\Auth;
+// Charger l'autoloader
+require_once ROOT_PATH . '/autoload.php';
 
-// Initialisation
+use App\Database\Connection;
+
+// Initialisation de la connexion
 Connection::init(
     DB_DRIVER,
     [
@@ -26,8 +25,3 @@ Connection::init(
         'pass' => DB_PASS,
     ]
 );
-
-// Initialiser Auth avec le PDO partagé
-Auth::init(Connection::get());
-
-

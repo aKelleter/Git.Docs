@@ -17,7 +17,7 @@ declare(strict_types=1);
 chdir(__DIR__ . '/public');
 
 // Charger le vrai point d’entrée
-require_once 'pages/index.php';
+require_once 'index.php';
 
 
 

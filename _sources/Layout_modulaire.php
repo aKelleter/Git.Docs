@@ -71,23 +71,10 @@ final class Layout
         HTML;
     }
 
-    /**
-     * Retourne le menu de navigation principal de l'application
-     * 
-     * @return string 
-     */
-    public static function getNavigation(): string
+        public static function getNavigation(): string
     {
         $menu = require ROOT_PATH . '/config/menu.php';
         $base_url = BASE_URL;
-
-        // URI actuelle sans base path
-        $current = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
-        $base = trim($base_url, '/');
-        if (!empty($base) && str_starts_with($current, $base)) {
-            $current = trim(substr($current, strlen($base)), '/');
-        }
-
         $html = '<nav class="navbar navbar-expand-md navbar-blue shadow-sm mb-4 rounded-3 shadow-sm">';
         $html .= '<div class="container">';
         $html .= '<ul class="nav nav-pills justify-content-center">';
@@ -95,18 +82,16 @@ final class Layout
         foreach ($menu as $key => $entry) {
             if (is_array($entry)) {
                 $html .= '<li class="nav-item dropdown">';
-                $html .= '<a class="nav-link dropdown-toggle" href="#" id="dropdown-' . htmlspecialchars($key) . '" data-bs-toggle="dropdown" aria-expanded="false">' . htmlspecialchars($key) . '</a>';
-                $html .= '<ul class="dropdown-menu" aria-labelledby="dropdown-' . htmlspecialchars($key) . '">';
+                $html .= '<a class="nav-link dropdown-toggle" href="#" id="dropdown-' . $key . '" data-bs-toggle="dropdown" aria-expanded="false">' . htmlspecialchars($key) . '</a>';
+                $html .= '<ul class="dropdown-menu" aria-labelledby="dropdown-' . $key . '">';
                 foreach ($entry as $subUrl => $subLabel) {
-                    $active = ($current === $subUrl) ? ' active link-orange' : '';
-                    $html .= '<li><a class="dropdown-item' . $active . '" href="' . $base_url . '/' . $subUrl . '">' . htmlspecialchars($subLabel) . '</a></li>';
+                    $html .= '<li><a class="dropdown-item" href="' . $base_url . '/' . $subUrl . '">' . htmlspecialchars($subLabel) . '</a></li>';
                 }
                 $html .= '</ul>';
                 $html .= '</li>';
             } else {
-                $active = ($current === $key) ? ' active link-orange' : '';
                 $html .= '<li class="nav-item">';
-                $html .= '<a class="nav-link' . $active . '" href="' . $base_url . '/' . $key . '">' . htmlspecialchars($entry) . '</a>';
+                $html .= '<a class="nav-link" href="' . $base_url . '/' . $key . '">' . htmlspecialchars($entry) . '</a>';
                 $html .= '</li>';
             }
         }
@@ -114,6 +99,19 @@ final class Layout
         $html .= '</ul></div></nav>';
         return $html;
     }
+
+        return <<<HTML
+        <nav class="navbar navbar-expand-md navbar-blue shadow-sm mb-4 rounded-3 shadow-sm">
+            <div class="container">
+                <ul class="nav nav-pills justify-content-center">
+                    $links
+                </ul>
+            </div>
+        </nav>
+        HTML;
+    }
+
+
 
 
     /**
