@@ -91,13 +91,8 @@ if (DEBUG) { ... }
 
 ---
 
-## ✅ 10. Internationalisation simple (i18n)
+## ✅ 10. [FAIT] Internationalisation simple (i18n)
 
-### 🔹 Multi-langue léger
-- Fichiers : `lang/fr.php`, `lang/en.php`, ...
-- Fonction d’aide :
-```php
-t('header.title'); // → $lang['header']['title']
 ```
 
 ---
