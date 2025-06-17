@@ -142,7 +142,7 @@ body {
 
 /* CODE & PRE (compat highlight.js) */
 pre {
-  background: #222a32 !important;
+  background: #1b2128 !important;
   border-radius: 8px;
   margin-bottom: 1.5rem;
   padding: 1.2rem 1rem;
@@ -153,7 +153,9 @@ pre code {
   background: transparent !important;
   color: #fff;
 }
-
+pre.vdump, pre.prtr{
+  background: var(--blue-light) !important;
+}
 /* Responsive tweaks */
 @media (max-width: 600px) {
   .header-custom {

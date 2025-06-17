@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 namespace App\Router;
+use App\UI\Layout;
 
 /**
  * Mini routeur pour une application simple sans framework.
@@ -65,25 +66,9 @@ final class Router
             require $file;
         } else {
             http_response_code(404);
-            echo "<div class='alert alert-danger'>Page introuvable</div>";
+            echo  Layout::alert(T_("Page introuvable."), "danger", false);
         }
         return ob_get_clean();
-    }
-    /*
-    public static function render(): string
-    {
-        $page = self::resolve();
-        $pageFile = rtrim(self::$pagesDir, '/') . "/{$page}.php";
-
-        ob_start();
-        if (file_exists($pageFile)) {
-            require $pageFile;
-        } else {
-            http_response_code(404);
-            echo "<div class='alert alert-danger'>Page introuvable</div>";
-        }
-        return ob_get_clean();
-    }
-    */
+    }   
 
 }

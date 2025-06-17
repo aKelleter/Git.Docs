@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\UI;
 
-use App\Auth\Auth;
+use App\I18n\I18n;
 
 final class Layout
 {
@@ -74,6 +74,26 @@ final class Layout
     }
 
     /**
+     * Construction de l'url des langues
+     * 
+     * @param string $url 
+     * @param string $lang 
+     * @return string 
+     */
+    private static function buildLangUrl(string $url, string $lang): string
+    {
+        $parsed = parse_url($url);
+        $path = $parsed['path'] ?? '';
+        $query = [];
+        if (isset($parsed['query'])) {
+            parse_str($parsed['query'], $query);
+        }
+        $query['lang'] = $lang;
+        return $path . '?' . http_build_query($query);
+    }
+
+
+    /**
      * Retourne le menu de navigation principal de l'application
      * 
      * @return string 
@@ -131,9 +151,33 @@ final class Layout
         // -- Ajouter le lien logout si connecté
         if ($isAuth) {
             $html .= '<li class="nav-item">';
-            $html .= '<a class="nav-link text-warning" href="' . $base_url . '/login/logout">Déconnexion</a>';
+            $html .= '<a class="nav-link text-warning" href="' . $base_url . '/login/logout">' . T_('Déconnexion') . '</a>';
             $html .= '</li>';
         }
+
+        // -- Sélecteur de langue dynamique
+        if(APP_MULTI_LANG)
+        {
+            $langs = I18n::getSupported();
+            //DEBUG//var_dump($langs); 
+            $currentLang = I18n::getLang();
+            //DEBUG//echo '- CURRENT LANG : '. $currentLang;
+            $currentUrl = $_SERVER['REQUEST_URI'];
+            //DEBUG//echo '- CURRENT URL : '. $currentUrl;
+
+            $html .= '<li class="nav-item dropdown ms-2">';
+            $html .= '<a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">'
+                . strtoupper(htmlspecialchars($langs[$currentLang])) . '</a>';
+            $html .= '<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">';
+            foreach ($langs as $string => $text) {
+                $active = ($string === $currentLang) ? 'active' : '';
+                $html .= '<li><a class="dropdown-item ' . $active . '" href="' . htmlspecialchars(self::buildLangUrl($currentUrl, $string)) . '">' . strtoupper($text) . '</a></li>';
+            }
+            $html .= '</ul></li>';
+        }
+        
+    
+      
 
         $html .= '</ul></div></nav>';
         return $html;
@@ -171,6 +215,12 @@ final class Layout
         }
     }
 
+    /**
+     * Retourne la liste des script JS à charger
+     * 
+     * @param string $path 
+     * @return string 
+     */
     public static function getJSSection(string $path = './') : string 
     {
         $base_url = BASE_URL;
@@ -184,5 +234,39 @@ final class Layout
 
         HTML;
     }
-
+    
+    /**
+     * Génère une div d’alerte Bootstrap
+     * 
+     * Utilisations:
+     * Layout::alert("Votre compte a été créé !", "success");
+     * Layout::alert("Nom d'utilisateur ou mot de passe invalide.", "danger");
+     * Layout::alert("Vous pouvez fermer cette alerte.", "warning", true); // fermable
+     * Layout::alert("Ceci est une info non-fermeture.", "info", false);   // non fermable
+     * 
+     * @param string $message Le texte à afficher
+     * @param string $type    Type : 'success', 'danger', 'warning', 'info', 'primary', etc.
+     * @param bool $dismissible Permettre la fermeture par l'utilisateur (optionnel)
+     * @return string HTML de l’alerte
+     */
+    public static function alert(string $message, string $type = 'info', bool $dismissible = true): string
+    {
+        $types = ['primary','secondary','success','danger','warning','info','light','dark'];
+        if (!in_array($type, $types)) {
+            $type = 'info';
+        }
+        $closeBtn = '';
+        $dismissClass = '';
+        if ($dismissible) {
+            $dismissClass = ' alert-dismissible fade show';
+            $closeBtn = '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fermer"></button>';
+        }
+        return sprintf(
+            '<div class="alert alert-%s%s text-center" role="alert">%s%s</div>',
+            htmlspecialchars($type),
+            $dismissClass,
+            htmlspecialchars($message),
+            $closeBtn
+        );
+    }
 }

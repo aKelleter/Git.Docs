@@ -1,0 +1,105 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2025-06-17 22:16+0200\n"
+"PO-Revision-Date: 2025-06-17 22:17+0200\n"
+"Last-Translator: Alain Kelleter <alain.kelleter@kelleter.be>\n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-KeywordsList: T_\n"
+"X-Source-Language: fr\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: vendor\n"
+
+#: config/menu.php:27
+msgid "Accueil"
+msgstr "Home"
+
+#: config/menu.php:28
+msgid "Les rubriques"
+msgstr "The sections"
+
+#: config/menu.php:29
+msgid "Commandes Git"
+msgstr "Git commands"
+
+#: config/menu.php:30
+msgid "Restaurer"
+msgstr "Restore"
+
+#: config/menu.php:31
+msgid "Les branches"
+msgstr "Branches"
+
+#: config/menu.php:33
+msgid "Liens"
+msgstr "Links"
+
+#: config/menu.php:34
+msgid "Administration"
+msgstr "Administration"
+
+#: config/menu.php:35
+msgid "Identification"
+msgstr "Identification"
+
+#: locale/strToTranslate.php:3
+msgid "Bienvenue sur"
+msgstr "Welcome to"
+
+#: locale/strToTranslate.php:4
+msgid "Bonne navigation !"
+msgstr "Happy surfing !"
+
+#: locale/strToTranslate.php:5
+msgid "Nom d'utilisateur"
+msgstr "Username"
+
+#: locale/strToTranslate.php:6
+msgid ""
+"N’hésitez pas à explorer le menu pour accéder aux différentes rubriques."
+msgstr "Feel free to explore the menu to access the different sections."
+
+#: locale/strToTranslate.php:7
+msgid "Mot de passe"
+msgstr "Password"
+
+#: locale/strToTranslate.php:8
+msgid ""
+"Ce site a pour objectif de rassembler et de présenter, de façon claire et "
+"synthétique, les principales commandes Git utiles au quotidien. Que vous "
+"soyez débutant ou utilisateur confirmé, vous trouverez ici des rappels "
+"rapides pour manipuler les branches, gérer vos commits, ou retrouver les "
+"commandes essentielles à l’aide de quelques clics."
+msgstr ""
+"The aim of this site is to bring together and present, in a clear and "
+"concise manner, the main Git commands that are useful on a day-to-day "
+"basis.\n"
+"Whether you're a beginner or an experienced user, you'll find quick "
+"reminders to manipulate branches, manage your commits, or find essential "
+"commands with just a few clicks."
+
+#: locale/strToTranslate.php:9
+msgid "Se connecter"
+msgstr "Sign in"
+
+#: locale/strToTranslate.php:10
+msgid "Veuillez vous identifier"
+msgstr "Please login"
+
+#: public/login/index.php:18
+msgid "Nom d'utilisateur ou mot de passe invalide."
+msgstr "Invalid username or password."
+
+#: src/Router/Router.php:69
+msgid "Page introuvable."
+msgstr "Page not found."
+
+#: src/UI/Layout.php:154
+msgid "Déconnexion"
+msgstr "Logout"

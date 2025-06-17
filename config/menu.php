@@ -24,13 +24,13 @@ declare(strict_types=1);
  * ]
  */
 return [
-    'git/index' => ['label' => 'Sommaire', 'auth' => null],                 // toujours visible
-    'Les rubriques' => [
-        'git/commandes' => ['label' => 'Commandes Git', 'auth' => null],
-        'git/restaurer' => ['label' => 'Restaurer', 'auth' => null],
-        'git/branches' => ['label' => 'Les branches', 'auth' => null],
-    ],    
-    'links/index' => ['label' => 'Liens', 'auth' => null],
-    'adm/index' => ['label' => 'Interface admin', 'auth' => true],          // visible uniquement connecté
-    'login/index' => ['label' => 'Login', 'auth' => false],                 // visible uniquement non connecté
+    'git/index' => ['label' => T_('Accueil'), 'auth' => null],                 // toujours visible
+    T_('Les rubriques') => [
+        'git/commandes' => ['label' => T_('Commandes Git'), 'auth' => null],
+        'git/restaurer' => ['label' => T_('Restaurer'), 'auth' => null],
+        'git/branches' => ['label' => T_('Les branches'), 'auth' => null],
+    ],
+    'links/index' => ['label' => T_('Liens'), 'auth' => null],
+    'adm/index' => ['label' => T_('Administration'), 'auth' => true],          // visible uniquement connecté
+    'login/index' => ['label' => T_('Identification'), 'auth' => false],                 // visible uniquement non connecté
 ];

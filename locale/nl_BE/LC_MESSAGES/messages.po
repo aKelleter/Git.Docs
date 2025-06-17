@@ -1,0 +1,107 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2025-06-17 22:16+0200\n"
+"PO-Revision-Date: 2025-06-17 22:17+0200\n"
+"Last-Translator: Alain Kelleter <alain.kelleter@kelleter.be>\n"
+"Language-Team: \n"
+"Language: nl_BE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-KeywordsList: T_\n"
+"X-Source-Language: fr\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: vendor\n"
+
+#: config/menu.php:27
+msgid "Accueil"
+msgstr "Home"
+
+#: config/menu.php:28
+msgid "Les rubriques"
+msgstr "De secties"
+
+#: config/menu.php:29
+msgid "Commandes Git"
+msgstr "Git commands"
+
+#: config/menu.php:30
+msgid "Restaurer"
+msgstr "Herstel"
+
+#: config/menu.php:31
+msgid "Les branches"
+msgstr "De takken"
+
+#: config/menu.php:33
+msgid "Liens"
+msgstr "Links"
+
+#: config/menu.php:34
+msgid "Administration"
+msgstr "Administratie"
+
+#: config/menu.php:35
+msgid "Identification"
+msgstr "Identificatie"
+
+#: locale/strToTranslate.php:3
+msgid "Bienvenue sur"
+msgstr "Welkom bij"
+
+#: locale/strToTranslate.php:4
+msgid "Bonne navigation !"
+msgstr "Veel surfplezier !"
+
+#: locale/strToTranslate.php:5
+msgid "Nom d'utilisateur"
+msgstr "Gebruikersnaam"
+
+#: locale/strToTranslate.php:6
+msgid ""
+"N’hésitez pas à explorer le menu pour accéder aux différentes rubriques."
+msgstr ""
+"Voel je vrij om het menu te verkennen om toegang te krijgen tot de "
+"verschillende secties."
+
+#: locale/strToTranslate.php:7
+msgid "Mot de passe"
+msgstr "Wachtwoord"
+
+#: locale/strToTranslate.php:8
+msgid ""
+"Ce site a pour objectif de rassembler et de présenter, de façon claire et "
+"synthétique, les principales commandes Git utiles au quotidien. Que vous "
+"soyez débutant ou utilisateur confirmé, vous trouverez ici des rappels "
+"rapides pour manipuler les branches, gérer vos commits, ou retrouver les "
+"commandes essentielles à l’aide de quelques clics."
+msgstr ""
+"Het doel van deze site is om de belangrijkste Git commando's, die dagelijks "
+"van pas komen, samen te brengen en op een duidelijke en beknopte manier te "
+"presenteren. Of je nu een beginner of een ervaren gebruiker bent, hier zul "
+"je snelle herinneringen vinden voor het manipuleren van branches, het "
+"beheren van je commits, of het vinden van de essentiële commando's met "
+"slechts een paar klikken."
+
+#: locale/strToTranslate.php:9
+msgid "Se connecter"
+msgstr "Aanmelden"
+
+#: locale/strToTranslate.php:10
+msgid "Veuillez vous identifier"
+msgstr "Identificeer uzelf"
+
+#: public/login/index.php:18
+msgid "Nom d'utilisateur ou mot de passe invalide."
+msgstr "Ongeldige gebruikersnaam of wachtwoord."
+
+#: src/Router/Router.php:69
+msgid "Page introuvable."
+msgstr "Pagina niet gevonden."
+
+#: src/UI/Layout.php:154
+msgid "Déconnexion"
+msgstr "Afmelden"

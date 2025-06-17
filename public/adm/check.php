@@ -46,4 +46,23 @@ if (isset($_SERVER['SERVER_SOFTWARE'])) {
     echo "Server: " . $_SERVER['SERVER_SOFTWARE'] . "\n";
 }
 
+// ==== Gettext PHP Extension ====
+
+echo "\n=== GETTEXT CHECK ===\n";
+
+// 4. Vérification dossiers et fichiers .mo attendus
+$localesToCheck = ['fr_BE', 'en_US', 'nl_BE']; // Ajoute ici tes codes langues
+$localeDir = ROOT . '/locale';
+
+foreach ($localesToCheck as $loc) {
+    $moFile = "$localeDir/$loc/LC_MESSAGES/messages.mo";
+    if (file_exists($moFile)) {
+        echo "MO file for $loc: OK ($moFile)\n";
+    } else {
+        echo "MO file for $loc: ❌ MISSING ($moFile)\n";
+    }
+}
+
+echo "\nGettext check completed.\n";
+
 echo "\nCheck completed.\n";

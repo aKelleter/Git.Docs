@@ -18,4 +18,7 @@ $tpl->setVar('Navigation', Layout::getNavigation());
 $tpl->setVar('Footer', Layout::getFooter());
 $tpl->setVar('JSSection', Layout::getJSSection());
 
+// Inclusion des chaînes de caractères à traduire
+require_once ROOT_PATH . '/locale/strToTranslate.php';
+
 $tpl->pparse('display', 'main');

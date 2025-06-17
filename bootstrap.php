@@ -11,10 +11,16 @@ require_once ROOT_PATH . '/autoload.php';
 // Chargement des configurations
 require_once ROOT_PATH . '/config/conf.php';
 require_once ROOT_PATH . '/config/database.php';
+require_once ROOT_PATH . '/app/function/app-fct.php'; 
 
 // Chargement des classes nécessaires
 use App\Database\Connection;
 use App\Auth\Auth;
+use App\I18n\I18n;
+use App\Helpers\Helpers;
+
+// Chargement des classe Gettext sans composer
+Helpers::registerGettext();
 
 // Initialisation de la connexion à la base de données
 Connection::init(
@@ -28,10 +34,12 @@ Connection::init(
     ]
 );
 
-/*  
-    Initialisation du système d'authentification 
-    avec Auth et l'objet PDO partagé
- */   
+ 
+// Initialisation du système d'authentification  avec Auth et l'objet PDO partagé
 Auth::init(Connection::get());
+
+// Intialisation de la langue
+I18n::init(); // ou I18n::init('en_US') pour forcer la langue
+//DEBUG// echo I18n::getLang();
 
 

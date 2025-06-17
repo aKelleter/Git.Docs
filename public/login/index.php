@@ -15,7 +15,7 @@ Csrf::requireValidToken();
 // Gestion du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!Auth::login($_POST['username'], $_POST['password'])) {
-        $error = '<div class="alert alert-danger text-center">Nom d’utilisateur ou mot de passe invalide.</div>';
+        $error = Layout::alert(T_("Nom d'utilisateur ou mot de passe invalide."), "danger", false);
     } else {
         header('Location: ' . BASE_URL . '/adm/index');
         exit;
@@ -38,5 +38,8 @@ $tpl->setVar('Error', $error);
 $tpl->setVar('Token_csrf', $token_csrf);
 $tpl->setVar('Footer', Layout::getFooter());
 $tpl->setVar('JSSection', Layout::getJSSection());
+
+// Inclusion des chaînes de caractères à traduire
+require_once ROOT_PATH . '/locale/strToTranslate.php';
 
 $tpl->pparse('display', 'main');
