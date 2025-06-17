@@ -7,31 +7,15 @@ VERSION ACTUELLE
 
 ---
 
-## ✅ 1. Organisation et propreté du code
+## ✅ 1. [FAIT] Organisation et propreté du code
 
 ### 🔹 [FAIT] Autoload maison plus intelligent
 - [FAIT] Autoloader récursif pour charger automatiquement les classes dans `src/` (plus de `require_once` manuel).
 - [FAIT] Regroupement des classes par domaine : `Router`, `UI`, `Helpers`, `Services`, etc.
 
-### 🔹 Variables d’environnement (au lieu de `conf.php`)
-- Chargement d’un fichier `.env` ou `.env.php` **non versionné** avec les constantes sensibles.
-
-Exemple :
-```php
-define('APP_NAME', $_ENV['APP_NAME'] ?? 'Git.Docs');
-```
-
 ---
 
-## ✅ 2. Séparation logique HTML / PHP
-
-### 🔹 Vues et mise en page
-- Utilisation d’un dossier `views/` avec des templates simples.
-- Exemple d’appel :  
-```php
-Layout::render('restaurer', ['pageTitle' => '...']);
-```
-→ Charge le fichier `views/restaurer.php`.
+## ✅ [FAIT] 2. Séparation logique HTML / PHP
 
 ---
 
@@ -53,7 +37,7 @@ set_error_handler('App\Core\ErrorHandler::handle');
 ### 🔹 Validation manuelle des entrées
 - Fonction centralisée : `sanitizeInput()` dans `Security.php`.
 
-### 🔹 Protection XSS / CSRF
+### 🔹 [FAIT] Protection XSS / CSRF
 - Préparation d’un **token CSRF global** si des formulaires sont ajoutés.
 
 ---
@@ -97,11 +81,6 @@ Layout::flash('Message enregistré !');
 ```php
 if (DEBUG) { ... }
 ```
-
-### 🔹 Fichier `dev.php`
-- Permet de :
-  - Tester du code PHP.
-  - Afficher les constantes/env/routes.
 
 ---
 
