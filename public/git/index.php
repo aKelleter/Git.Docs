@@ -1,29 +1,21 @@
 <?php
-    declare(strict_types=1);    
-    
-    use App\UI\Layout;
-    $pageTitle = 'Git.Docs';
-?>
-<?= Layout::getHeader($pageTitle) ?>
-<body>    
-    <?= Layout::getSectionHeader(); ?>
-    <main class="container mb-5"> 
-    <?= Layout::getNavigation(); ?>
+declare(strict_types=1);  
 
-    <div class="main-div mt-5 p-2 bordered shadow-sm text-muted">
-        <h2 class="h4 text-center">Bienvenue sur Git.Docs</h2>
-        <hr>
-        <p class="text-justify">
-            Ce site a pour objectif de rassembler et de présenter, de façon claire et synthétique, les principales commandes Git utiles au quotidien.              
-            Que vous soyez débutant ou utilisateur confirmé, vous trouverez ici des rappels rapides pour manipuler les branches, gérer vos commits, ou retrouver les commandes essentielles à l’aide de quelques clics.
-        </p>
-        <p class="mb-0 text-center">
-            N’hésitez pas à explorer le menu pour accéder aux différentes rubriques. </p>
-        <p class="text-center mt-3"> Bonne navigation&nbsp;!</p>
-        
-    </div>
-    <?= Layout::getFooter() ?>
-    </main>
-    <?= Layout::getJSSection() ?>
-</body>
-</html>
+use App\UI\Template;
+use App\UI\Layout;
+
+$pageTitle = 'Git.Docs';
+
+// -----------------------------------------------
+$tpl = new Template(ROOT_PATH . '/templates/git');
+$tpl->setFile([
+        'main'  => 'index.html'    
+]);
+
+$tpl->setVar('Header', Layout::getHeader($pageTitle));
+$tpl->setVar('SectionHeader', Layout::getSectionHeader());
+$tpl->setVar('Navigation', Layout::getNavigation());
+$tpl->setVar('Footer', Layout::getFooter());
+$tpl->setVar('JSSection', Layout::getJSSection());
+
+$tpl->pparse('display', 'main');

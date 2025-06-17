@@ -3,7 +3,7 @@
 Ce document recense les améliorations techniques a apportées au projet **Git.Docs**, ainsi que des recommandations pour faire évoluer l'application et maintenir un code propre, modulaire et performant.
 
 VERSION ACTUELLE
-![Version](https://img.shields.io/badge/version-1.2.0-blue)
+![Version](https://img.shields.io/badge/version-1.6.0-blue)
 
 ---
 
@@ -87,17 +87,7 @@ Layout::flash('Message enregistré !');
 ---
 
 ## ✅ 7. Navigation dynamique
-
 ### 🔹 [FAIT] Menu généré automatiquement
-```php
-$routes = [
-  'home' => 'Sommaire',
-  'branches' => 'Branches',
-  'restaurer' => 'Restaurer',
-];
-```
-→ Facile à maintenir, évite le HTML statique.
-
 ---
 
 ## ✅ 8. Tests & outils développeur

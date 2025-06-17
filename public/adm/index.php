@@ -1,33 +1,21 @@
 <?php
-declare(strict_types=1);    
+declare(strict_types=1);  
 
-use App\Security\AccessControl;
+use App\UI\Template;
 use App\UI\Layout;
 
-// Protection d'accès
-AccessControl::requireLogin();
+$pageTitle = 'Git.Docs - Administration';
 
-$pageTitle = 'Admin';
-?>
-<?= Layout::getHeader($pageTitle) ?>
-<body>  
-    <?= Layout::getSectionHeader(); ?>     
-    <main class="container mb-5"> 
-        <?= Layout::getNavigation(); ?>
-        <div class="main-div mt-5 p-2 bordered shadow-sm">
-            <h2 class="h4 text-center">Administration</h2>
-            <hr>
-            <p>
-                <ul style="list-style-type:none;">
-                    <li><a href="check" target="_blank">Configuration check </a></li>                    
-                </ul>
-            </p>
-            <p class="text-center">
-                <a href="<?=BASE_URL?>/git/index">Return to Git index</a>
-            </p>
-        </div>
-        <?= Layout::getFooter() ?>
-    </main>
-    <?= Layout::getJSSection() ?>
-</body>
-</html>
+// -----------------------------------------------
+$tpl = new Template(ROOT_PATH . '/templates/adm');
+$tpl->setFile([
+        'main'  => 'index.html'    
+]);
+
+$tpl->setVar('Header', Layout::getHeader($pageTitle));
+$tpl->setVar('SectionHeader', Layout::getSectionHeader());
+$tpl->setVar('Navigation', Layout::getNavigation());
+$tpl->setVar('Footer', Layout::getFooter());
+$tpl->setVar('JSSection', Layout::getJSSection());
+
+$tpl->pparse('display', 'main');

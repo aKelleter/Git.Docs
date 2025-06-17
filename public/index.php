@@ -6,8 +6,7 @@ require_once __DIR__ . '/../bootstrap.php';
 use App\Router\Router;
 
 $content = Router::render();
-$page = Router::resolve();
-//DEBUG//echo 'PAGE : ' . $page; 
+//DEBUG// $page = Router::resolve(); echo 'PAGE : ' . $page; 
 echo $content;
 
 

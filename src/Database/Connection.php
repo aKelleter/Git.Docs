@@ -11,6 +11,14 @@ final class Connection
 {
     private static ?PDO $pdo = null;
 
+    /**
+     * Intialisation de la connection
+     * 
+     * @param string $driver 
+     * @param array $config 
+     * @return void 
+     * @throws RuntimeException 
+     */
     public static function init(string $driver, array $config): void
     {
         if (self::$pdo) {
@@ -51,6 +59,12 @@ final class Connection
         }
     }
 
+    /**
+     * Retourne la connection
+     * 
+     * @return PDO 
+     * @throws RuntimeException 
+     */
     public static function get(): PDO
     {
         if (!self::$pdo) {
