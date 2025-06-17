@@ -3,6 +3,10 @@ declare(strict_types=1);
 
 use App\UI\Template;
 use App\UI\Layout;
+use App\Security\AccessControl;
+
+// Protection d'accès
+AccessControl::requireLogin();
 
 $pageTitle = 'Git.Docs - Administration';
 
