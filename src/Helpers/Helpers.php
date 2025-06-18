@@ -9,7 +9,7 @@ final class Helpers
    {
        spl_autoload_register(function ($class) {
            $prefix = 'Gettext\\';
-           $base_dir = ROOT_PATH . '/vendor/php/gettext/';
+           $base_dir = ROOT_PATH . '/vendor/gettext/';
            $len = strlen($prefix);
            if (strncmp($class, $prefix, $len) !== 0) {
                return;

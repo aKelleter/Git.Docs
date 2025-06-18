@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2025-06-17 22:16+0200\n"
-"PO-Revision-Date: 2025-06-17 22:17+0200\n"
+"POT-Creation-Date: 2025-06-18 10:02+0200\n"
+"PO-Revision-Date: 2025-06-18 10:02+0200\n"
 "Last-Translator: Alain Kelleter <alain.kelleter@kelleter.be>\n"
 "Language-Team: \n"
 "Language: en_US\n"
@@ -57,19 +57,23 @@ msgid "Bonne navigation !"
 msgstr "Happy surfing !"
 
 #: locale/strToTranslate.php:5
+msgid "Découvrir Git"
+msgstr "Discover Git"
+
+#: locale/strToTranslate.php:6
+msgid "Mot de passe"
+msgstr "Password"
+
+#: locale/strToTranslate.php:7
 msgid "Nom d'utilisateur"
 msgstr "Username"
 
-#: locale/strToTranslate.php:6
+#: locale/strToTranslate.php:8
 msgid ""
 "N’hésitez pas à explorer le menu pour accéder aux différentes rubriques."
 msgstr "Feel free to explore the menu to access the different sections."
 
-#: locale/strToTranslate.php:7
-msgid "Mot de passe"
-msgstr "Password"
-
-#: locale/strToTranslate.php:8
+#: locale/strToTranslate.php:9
 msgid ""
 "Ce site a pour objectif de rassembler et de présenter, de façon claire et "
 "synthétique, les principales commandes Git utiles au quotidien. Que vous "
@@ -84,11 +88,11 @@ msgstr ""
 "reminders to manipulate branches, manage your commits, or find essential "
 "commands with just a few clicks."
 
-#: locale/strToTranslate.php:9
+#: locale/strToTranslate.php:10
 msgid "Se connecter"
 msgstr "Sign in"
 
-#: locale/strToTranslate.php:10
+#: locale/strToTranslate.php:11
 msgid "Veuillez vous identifier"
 msgstr "Please login"
 

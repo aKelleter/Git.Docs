@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\UI;
 
 use App\I18n\I18n;
+use App\UI\Assets;
 
 final class Layout
 {
@@ -18,21 +19,21 @@ final class Layout
     public static function getHeader(string $title = '') : string
     {
         $base_url = BASE_URL;
-        return <<<HTML
+        $html = <<<HTML
         <!DOCTYPE html>
             <html lang="fr">
             <head>
                 <meta charset="UTF-8">
                 <title>$title</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1">
-                <!-- Bootstrap -->
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-                <!-- Highlight.js -->
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-                <!-- Custom palette -->
-                <link rel="stylesheet" href=" $base_url/assets/css/styles.css">
-            </head>
+
         HTML;
+        
+        $html .= Assets::renderPreloads();       
+        $html .= Assets::renderStyles();
+        
+        $html .= '</head>';
+        return $html;
     }
     
     /**
@@ -224,15 +225,8 @@ final class Layout
     public static function getJSSection(string $path = './') : string 
     {
         $base_url = BASE_URL;
-
-        return <<<HTML
-            <!-- Bootstrap JS -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-            <!-- Highlight.js -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>            
-            <script type="module" src="$base_url/assets/js/main.js"></script>
-
-        HTML;
+        $html = Assets::renderScripts();       
+        return $html;
     }
     
     /**
@@ -269,4 +263,5 @@ final class Layout
             $closeBtn
         );
     }
+   
 }

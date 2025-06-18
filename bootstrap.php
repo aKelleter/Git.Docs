@@ -11,6 +11,7 @@ require_once ROOT_PATH . '/autoload.php';
 // Chargement des configurations
 require_once ROOT_PATH . '/config/conf.php';
 require_once ROOT_PATH . '/config/database.php';
+// Chargement des fichiers de fonctions
 require_once ROOT_PATH . '/app/function/app-fct.php'; 
 
 // Chargement des classes nécessaires
@@ -19,7 +20,7 @@ use App\Auth\Auth;
 use App\I18n\I18n;
 use App\Helpers\Helpers;
 
-// Chargement des classe Gettext sans composer
+// Chargement des classe Gettext sans Composer
 Helpers::registerGettext();
 
 // Initialisation de la connexion à la base de données

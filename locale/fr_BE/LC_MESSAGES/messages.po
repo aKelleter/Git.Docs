@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2025-06-17 18:51+0200\n"
-"PO-Revision-Date: 2025-06-17 18:52+0200\n"
+"POT-Creation-Date: 2025-06-18 10:02+0200\n"
+"PO-Revision-Date: 2025-06-18 10:02+0200\n"
 "Last-Translator: Alain Kelleter <alain.kelleter@kelleter.be>\n"
 "Language-Team: \n"
 "Language: fr_BE\n"
@@ -12,10 +12,92 @@ msgstr ""
 "X-Generator: Poedit 3.6\n"
 "X-Poedit-Basepath: ../../..\n"
 "X-Poedit-KeywordsList: T_\n"
+"X-Source-Language: fr\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: vendor\n"
-"X-Source-Language: fr\n"
 
-#: public/git/index.php:23
+#: config/menu.php:27
+msgid "Accueil"
+msgstr ""
+
+#: config/menu.php:28
+msgid "Les rubriques"
+msgstr ""
+
+#: config/menu.php:29
+msgid "Commandes Git"
+msgstr ""
+
+#: config/menu.php:30
+msgid "Restaurer"
+msgstr ""
+
+#: config/menu.php:31
+msgid "Les branches"
+msgstr ""
+
+#: config/menu.php:33
+msgid "Liens"
+msgstr ""
+
+#: config/menu.php:34
+msgid "Administration"
+msgstr ""
+
+#: config/menu.php:35
+msgid "Identification"
+msgstr ""
+
+#: locale/strToTranslate.php:3
 msgid "Bienvenue sur"
+msgstr ""
+
+#: locale/strToTranslate.php:4
+msgid "Bonne navigation !"
+msgstr ""
+
+#: locale/strToTranslate.php:5
+msgid "Découvrir Git"
+msgstr ""
+
+#: locale/strToTranslate.php:6
+msgid "Mot de passe"
+msgstr ""
+
+#: locale/strToTranslate.php:7
+msgid "Nom d'utilisateur"
+msgstr ""
+
+#: locale/strToTranslate.php:8
+msgid ""
+"N’hésitez pas à explorer le menu pour accéder aux différentes rubriques."
+msgstr ""
+
+#: locale/strToTranslate.php:9
+msgid ""
+"Ce site a pour objectif de rassembler et de présenter, de façon claire et "
+"synthétique, les principales commandes Git utiles au quotidien. Que vous "
+"soyez débutant ou utilisateur confirmé, vous trouverez ici des rappels "
+"rapides pour manipuler les branches, gérer vos commits, ou retrouver les "
+"commandes essentielles à l’aide de quelques clics."
+msgstr ""
+
+#: locale/strToTranslate.php:10
+msgid "Se connecter"
+msgstr ""
+
+#: locale/strToTranslate.php:11
+msgid "Veuillez vous identifier"
+msgstr ""
+
+#: public/login/index.php:18
+msgid "Nom d'utilisateur ou mot de passe invalide."
+msgstr ""
+
+#: src/Router/Router.php:69
+msgid "Page introuvable."
+msgstr ""
+
+#: src/UI/Layout.php:154
+msgid "Déconnexion"
 msgstr ""

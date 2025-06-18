@@ -22,31 +22,59 @@ final class I18n
             ? ROOT_PATH . '/locale'
             : __DIR__ . '/../../locale';
 
-        // 1. Priorité au GET pour changer la langue, puis session, sinon défaut
+        // 1. Forçage GET
         if ($lang === null && isset($_GET['lang']) && array_key_exists($_GET['lang'], self::$supported)) {
             $lang = $_GET['lang'];
             $_SESSION['lang'] = $lang;
         }
 
+        // 2. Session existante
         if ($lang === null && isset($_SESSION['lang']) && array_key_exists($_SESSION['lang'], self::$supported)) {
             $lang = $_SESSION['lang'];
         }
 
+        // 3. Détection langue navigateur
+        if ($lang === null && isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+            $browserLangs = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+            foreach ($browserLangs as $bl) {
+                $bl = strtolower(trim(explode(';', $bl)[0]));
+                // Cherche correspondance exacte (fr_BE, en_US, nl_BE…)
+                foreach (array_keys(self::$supported) as $supported) {
+                    if (strtolower($supported) === $bl || str_replace('-', '_', $bl) === strtolower($supported)) {
+                        $lang = $supported;
+                        break 2;
+                    }
+                }
+                // Cherche correspondance partielle (fr → fr_BE, en → en_US, nl → nl_BE…)
+                if (strlen($bl) === 2) {
+                    foreach (array_keys(self::$supported) as $supported) {
+                        if (stripos($supported, $bl . '_') === 0) {
+                            $lang = $supported;
+                            break 2;
+                        }
+                    }
+                }
+            }
+        }
+
+        // 4. Fallback défaut
         if ($lang === null || !array_key_exists($lang, self::$supported)) {
             $lang = 'fr_BE';
         }
+
         self::$lang = $lang;
         $_SESSION['lang'] = $lang;
 
-        // 2. Chargement du fichier MO via la librairie PHP Gettext (cross-plateforme)
+        // Chargement du fichier MO via la librairie PHP Gettext
         $moPath = self::$localeDir . '/' . $lang . '/LC_MESSAGES/' . self::$domain . '.mo';
         if (file_exists($moPath)) {
-            $loader = new MoLoader();
+            $loader = new \Gettext\Loader\MoLoader();
             self::$translations = $loader->loadFile($moPath);
         } else {
             self::$translations = null;
         }
     }
+
 
     /** Retourne la langue courante */
     public static function getLang(): string

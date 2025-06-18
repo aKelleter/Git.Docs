@@ -29,7 +29,8 @@ spl_autoload_register(function (string $class): void {
 });
 
 /**
- * ANCIEN CHARGEMENT
+ * ANCIEN CHARGEMENT MANUEL DES FICHIERS
+ * À conserver pour référence, mais à ne pas utiliser dans les nouveaux projets.
  */
 
 /*

@@ -3,21 +3,10 @@
 Ce document recense les améliorations techniques a apportées au projet **Git.Docs**, ainsi que des recommandations pour faire évoluer l'application et maintenir un code propre, modulaire et performant.
 
 VERSION ACTUELLE
-![Version](https://img.shields.io/badge/version-1.6.0-blue)
+![Version](https://img.shields.io/badge/version-1.8.0-blue)
 
 ---
 
-## ✅ 1. [FAIT] Organisation et propreté du code
-
-### 🔹 [FAIT] Autoload maison plus intelligent
-- [FAIT] Autoloader récursif pour charger automatiquement les classes dans `src/` (plus de `require_once` manuel).
-- [FAIT] Regroupement des classes par domaine : `Router`, `UI`, `Helpers`, `Services`, etc.
-
----
-
-## ✅ [FAIT] 2. Séparation logique HTML / PHP
-
----
 
 ## ✅ 3. Gestion centralisée des erreurs
 
@@ -36,9 +25,6 @@ set_error_handler('App\Core\ErrorHandler::handle');
 
 ### 🔹 Validation manuelle des entrées
 - Fonction centralisée : `sanitizeInput()` dans `Security.php`.
-
-### 🔹 [FAIT] Protection XSS / CSRF
-- Préparation d’un **token CSRF global** si des formulaires sont ajoutés.
 
 ---
 

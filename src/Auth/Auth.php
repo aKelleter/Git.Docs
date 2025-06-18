@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Auth;
 
 use PDO;
-use PDOException;
+
 
 final class Auth
 {
