@@ -3,9 +3,15 @@
 Ce document recense les améliorations techniques a apportées au projet **Git.Docs**, ainsi que des recommandations pour faire évoluer l'application et maintenir un code propre, modulaire et performant.
 
 VERSION ACTUELLE
-![Version](https://img.shields.io/badge/version-1.8.0-blue)
+![Version](https://img.shields.io/badge/version-1.10.0-blue)
 
 ---
+
+La sélection de la langue ne fonctionne plus si il y a d'autres paramètres dans l'url, uniquement avec forceCache=1 :
+ex.: http://localhost:8080/prj/Git.Docs/git/index?lang=en_US&forceCache=1 
+
+Problème de jeton CSRF sur la page admin avec le bouton videer le cache
+
 
 ## ✅ 4. Sécurité
 

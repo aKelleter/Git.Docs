@@ -4,3 +4,6 @@
 # Logs d'erreur
 error_log
 logs/*
+
+# Cache
+cache/*.*
