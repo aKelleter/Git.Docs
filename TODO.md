@@ -7,20 +7,6 @@ VERSION ACTUELLE
 
 ---
 
-
-## ✅ 3. Gestion centralisée des erreurs
-
-### 🔹 Custom error handler
-- Log des erreurs dans un fichier `logs/` :
-```php
-set_error_handler('App\Core\ErrorHandler::handle');
-```
-
-### 🔹 Pages 404 / 500 personnalisées
-- Routing vers des pages d’erreur dédiées avec messages clairs.
-
----
-
 ## ✅ 4. Sécurité
 
 ### 🔹 Validation manuelle des entrées

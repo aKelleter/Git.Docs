@@ -39,6 +39,16 @@ final class Template
     /** @var string */
     public string $last_error = '';
 
+    /** @var bool */
+    private bool $enable_cache = false;
+
+    /** @var string */
+    private string $cache_dir = '/tmp';
+
+    /** @var int */
+    private int $cache_ttl = 300; // 5 minutes
+
+
     public function __construct(string $root = '.', string $unknowns = 'remove')
     {
         $this->setRoot($root);
@@ -176,11 +186,59 @@ final class Template
         return $this->getVar($target);
     }
 
+    /*
     public function pparse(string $target, string|array $varname, bool $append = false): false
     {
         print $this->finish($this->parse($target, $varname, $append));
         return false;
     }
+    */
+
+    public function pparse(string $target, string|array $varname, bool $append = false): false
+    {
+        
+        //-----------------------------------------------
+        // Création du nom de fichier pour le cache
+        $url = $_SERVER['REQUEST_URI'] ?? 'unknown';
+        $path = parse_url($url, PHP_URL_PATH); 
+
+        // Supprimer le préfixe BASE_URL 
+        $base = rtrim(BASE_URL, '/');
+        if (str_starts_with($path, $base)) {
+            $path = substr($path, strlen($base));
+        }
+
+        // Nettoyage et transformation
+        $clean = trim($path, '/'); 
+        $clean = $clean === '' ? 'home' : $clean;
+        $cacheKey = str_replace(['/', '\\'], '_', $clean); 
+        //-----------------------------------------------
+
+
+        if ($this->enable_cache) {
+            $cacheFile = $this->cache_dir . '/' . $cacheKey . '.html';
+
+            if (file_exists($cacheFile) && (time() - filemtime($cacheFile) < $this->cache_ttl)) {
+                readfile($cacheFile);
+                return false;
+            }
+        }
+
+        $output = $this->finish($this->parse($target, $varname, $append));
+        
+        if ($this->enable_cache) {
+            file_put_contents($cacheFile, $output);
+        }
+
+        // Si le cache est activé on place un commentaire dans le code HTML
+        if ($this->enable_cache) {
+            $output = "<!-- rendered with cache key: $cacheKey -->\n" . $output;
+        }
+
+        echo $output;
+        return false;
+    }
+
 
     public function getVars(): array
     {
@@ -313,4 +371,27 @@ final class Template
     {
         printf("<b>Template Error:</b> %s<br>\n", htmlspecialchars($msg));
     }
+
+    public function enableCache(bool $state = true): void
+    {
+        $this->enable_cache = $state;
+    }
+
+    public function setCacheDir(string $dir): void
+    {
+        $this->cache_dir = rtrim($dir, '/\\');
+    }
+
+    public function setCacheTTL(int $ttl): void
+    {
+        $this->cache_ttl = $ttl;
+    }
+
+    public function clearCache(): void
+    {
+        foreach (glob($this->cache_dir . '/*.html') as $file) {
+            unlink($file);
+        }
+    }
+
 }

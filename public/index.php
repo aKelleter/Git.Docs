@@ -14,18 +14,14 @@ Assets::addStyle(BASE_URL."/vendor/highlight/css/github-dark.min.css");
 Assets::addPreload(BASE_URL."/assets/css/styles.css", 'style');
 Assets::addStyle(BASE_URL."/assets/css/styles.css");
 
-
 // Ajoute les scripts GLOBAUX utiles à toutes les pages
 Assets::addScript(BASE_URL."/vendor/bootstrap/js/bootstrap.bundle.min.js");
 Assets::addScript(BASE_URL."/vendor/highlight/js/highlight.min.js");
 Assets::addScript(BASE_URL."/assets/js/main.js", true, true);
 
-$content = Router::render();
 
+// Rendu de la page
+$content = Router::render();
 //DEBUG// $page = Router::resolve(); echo 'PAGE : ' . $page; 
 //DEBUG// echo "Langue détectée : " . \App\I18n\I18n::getLang();
-
-echo $content;
-
-
-
+echo $content;    

@@ -6,14 +6,22 @@
         <div class="main-div mt-5 p-2 bordered shadow-sm">
             <h2 class="h4 text-center">Administration</h2>
             <hr>
-            <p>
-                <ul style="list-style-type:none;">
-                    <li><a href="check" target="_blank">Configuration check </a></li>                    
-                </ul>
-            </p>
-            <p class="text-center">
-                <a href="{Url_git_index}">Return to Git index</a>
-            </p>
+            <div class="text-end mt-3">
+                <a class="btn btn-sm btn-info" href="{Url_git_index}">Index</a>
+                <a class="btn btn-sm btn-info" href="check" target="_blank">Configuration check </a>
+                <a href="?clearCache=1&token={CsrfToken}" class="btn btn-sm btn-danger"
+                onclick="return confirm('Voulez-vous vraiment vider tout le cache ?')">
+                Vider le cache
+                </a>
+            </div>
+            <!-- Message de confirmation après suppression -->
+            {CacheMessage}
+            <ul style="list-style-type:none;">
+                <li></li>                    
+            </ul>
+            <div class="message bg-info">
+                {ListFilesCache}
+            </div>            
         </div>
         {Footer}
     </main>

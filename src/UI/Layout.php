@@ -263,5 +263,29 @@ final class Layout
             $closeBtn
         );
     }
+
+    /**
+     * Génère une div d'information ou de message permanent
+     * 
+     * Utilisation :
+     *   echo Layout::message("Bienvenue sur la page d’accueil !", "info");
+     *   echo Layout::message("Bravo, inscription réussie !", "success", "text-center");
+     * 
+     * @param string $content  Texte à afficher (HTML autorisé)
+     * @param string $type     Type Bootstrap (info, success, warning, danger, etc.) 
+     * @param string $extraClass Classe(s) supplémentaire(s)
+     * @return string
+     */
+    public static function message(
+        string $content,
+        string $type = 'info',        
+        string $extraClass = ''
+    ): string
+    {
+        $class = 'div-message bg-' . $type . ' border border-' . $type . ' rounded p-3 mb-3 ' . $extraClass;
+        $html = '<div class="' . htmlspecialchars($class) . '" role="status">';
+        $html .= $content . '</div>';
+        return $html;
+    }
    
 }

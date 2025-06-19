@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $pageTitle = 'Git.Docs - Identification';
-$token_csrf = htmlspecialchars(Csrf::generate());
+$token_csrf = htmlspecialchars(Csrf::generateToken());
 
 // -----------------------------------------------
 $tpl = new Template(ROOT_PATH . '/templates/login');

@@ -19,6 +19,7 @@ use App\Database\Connection;
 use App\Auth\Auth;
 use App\I18n\I18n;
 use App\Helpers\Helpers;
+use App\Core\ErrorHandler;
 
 // Chargement des classe Gettext sans Composer
 Helpers::registerGettext();
@@ -42,5 +43,19 @@ Auth::init(Connection::get());
 // Intialisation de la langue
 I18n::init(); // ou I18n::init('en_US') pour forcer la langue
 //DEBUG// echo I18n::getLang();
+
+// Configure tout le système de gestion d’erreurs de l'application
+// Active ou non l'affichage des erreurs
+if (DEBUG) {
+    ini_set('display_errors', '1');
+    error_reporting(E_ALL);
+} else {
+    ini_set('display_errors', '0');
+}
+
+ErrorHandler::register();
+
+
+
 
 

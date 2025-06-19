@@ -11,7 +11,7 @@ final class Csrf
      * @return string 
      * @throws RandomException 
      */
-    public static function generate(): string
+    public static function generateToken(): string
     {
         // Démarre la session si elle n'est pas déjà active
         if (session_status() !== PHP_SESSION_ACTIVE) session_start();
@@ -29,7 +29,7 @@ final class Csrf
      * @param string $token 
      * @return bool 
      */
-    public static function check(string $token): bool
+    public static function verifyToken(string $token): bool
     {
         if (session_status() !== PHP_SESSION_ACTIVE) session_start();
         return isset($_SESSION['csrf_token']) && hash_equals($_SESSION['csrf_token'], $token);
@@ -46,11 +46,25 @@ final class Csrf
             $_SERVER['REQUEST_METHOD'] === 'POST' &&
             (
                 !isset($_POST['csrf_token']) ||
-                !self::check($_POST['csrf_token'])
+                !self::verifyToken($_POST['csrf_token'])
             )
         ) {
             http_response_code(400);
             die('Erreur de sécurité : CSRF token invalide.');
+        }
+    }
+
+    public static function requireValidTokenFromGet(): void
+    {
+        if (
+            $_SERVER['REQUEST_METHOD'] === 'GET' &&
+            (
+                !isset($_GET['token']) ||
+                !self::verifyToken($_GET['token'])
+            )
+        ) {
+            http_response_code(400);
+            die('Erreur de sécurité : CSRF token manquant ou invalide.');
         }
     }
     

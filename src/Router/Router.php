@@ -2,7 +2,6 @@
 declare(strict_types=1);
 
 namespace App\Router;
-use App\UI\Layout;
 
 /**
  * Mini routeur pour une application simple sans framework.
@@ -15,12 +14,7 @@ final class Router
      * Doit correspondre à la constante BASE_URL définie dans config/conf.php
      */
     public static string $basePath = BASE_URL;
-
-    /**
-     * Dossier contenant les pages à inclure.
-     */
-    //public static string $pagesDir = __DIR__ . '/../../public/pages/';
-
+    
     /**
      * Résout l'URL demandée en nom de page.
      * Exemple : "/git.docs/commandes" → "commandes"
@@ -58,7 +52,7 @@ final class Router
         // Empêche les tentatives de traversal
         if (str_contains($page, '..')) {
             http_response_code(400);
-            return "<h1>Chemin non autorisé</h1>";
+            return "<h1>".T_("Chemin non autorisé")."</h1>";
         }
 
         ob_start();
@@ -66,7 +60,22 @@ final class Router
             require $file;
         } else {
             http_response_code(404);
-            echo  Layout::alert(T_("Page introuvable."), "danger", false);
+            // Version “page dédiée” (si /public/errors/404.php existe) :
+          
+            $errorPage = ROOT_PATH . '/public/errors/404.php';
+            //DEBUG//echo $errorPage;
+
+            if (file_exists($errorPage)) {
+                //echo 'je passe ici';
+                require $errorPage;
+                //exit;
+            } else {
+                // Fallback :
+                echo '<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><title>Error 404</title></head><body>';
+                echo '<h1>Error 404 – '.T_("Page introuvable.").'</h1>';
+                echo '<p>'.T_("La page demandée n'hexiste pas.").'</p>';
+                echo '</body></html>';
+            }
         }
         return ob_get_clean();
     }   
