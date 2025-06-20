@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 const APP_NAME = "Git.Docs";
-const APP_VER = "1.10.0-19062025-1700";
+const APP_VER = "1.11.0-19062025-1640";
 const BASE_URL = '/prj/Git.Docs';
 const DEFAULT_MODULE = 'git';
 
@@ -15,7 +15,6 @@ define('IS_DEV', ENV === 'dev');
 define('IS_ACC', ENV === 'acc');
 
 define('DEBUG', IS_DEV || IS_ACC);
-
 
 define('LOG_PATHFILE', ROOT_PATH . '/logs/' . ENV . '-' . date('Y-m-d') . '.log');
 define('CACHE_PATH', ROOT_PATH . '/cache/' . ENV);
