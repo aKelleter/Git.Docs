@@ -6,4 +6,4 @@ error_log
 logs/*
 
 # Cache
-cache/*.*
+cache/*

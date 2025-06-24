@@ -228,6 +228,15 @@ final class Layout
         $html = Assets::renderScripts();       
         return $html;
     }
+
+    public static function getBtnTop() :string
+    {
+        return '<button id="btn-top" class="btn btn-primary rounded-circle shadow"
+        style="position:fixed; bottom:2rem; left:calc(50% + 740px); display:none; z-index:1030;">
+        ↑
+    </button>
+        ';
+    }
     
     /**
      * Génère une div d’alerte Bootstrap

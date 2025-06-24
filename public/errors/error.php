@@ -1,8 +1,9 @@
 <?php
 declare(strict_types=1);  
 
-use App\UI\Template;
+
 use App\UI\Layout;
+use App\UI\Template;
 
 $pageTitle = 'Error - Git.Docs';
 

@@ -26,7 +26,7 @@
    BASE & BODY
 -------------------------------------------- */
 body {
-  max-width: 1024px;
+  max-width: 1280px;
   margin: 0 auto;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.1em;
@@ -190,7 +190,7 @@ pre.vdump, pre.prtr {
   .header-custom { padding: 2rem 1rem; }
   .card-blue     { padding: 0.5rem; }
 }
-@media (max-width: 1100px) {
+@media (max-width: 1340px) {
   #btn-top {
     left: auto !important;
     right: 2rem !important;

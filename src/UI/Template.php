@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 namespace App\UI;
+use App\I18n\I18n;
 
 /**
  * Classe Template – moteur de template ultra-léger
@@ -186,14 +187,6 @@ final class Template
         return $this->getVar($target);
     }
 
-    /*
-    public function pparse(string $target, string|array $varname, bool $append = false): false
-    {
-        print $this->finish($this->parse($target, $varname, $append));
-        return false;
-    }
-    */
-
     public function pparse(string $target, string|array $varname, bool $append = false): false
     {
         
@@ -212,6 +205,11 @@ final class Template
         $clean = trim($path, '/'); 
         $clean = $clean === '' ? 'home' : $clean;
         $cacheKey = str_replace(['/', '\\'], '_', $clean); 
+
+        // Ajout de la langue courante
+        $lang = I18n::getLang();
+        $lang = preg_replace('/[^a-zA-Z0-9_]/', '', $lang); // sécurise le nom du fichier
+        $cacheKey .= '_' . $lang;
         //-----------------------------------------------
 
 
@@ -238,7 +236,6 @@ final class Template
         echo $output;
         return false;
     }
-
 
     public function getVars(): array
     {
@@ -311,8 +308,6 @@ final class Template
     {
         return $this->finish($this->getVar($varname));
     }
-
-    // -- Helpers internes --
 
     private function filename(string $filename): string
     {

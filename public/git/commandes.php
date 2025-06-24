@@ -17,6 +17,7 @@ $tpl->setVar('SectionHeader', Layout::getSectionHeader());
 $tpl->setVar('Navigation', Layout::getNavigation());
 $tpl->setVar('Ressources', Layout::getRessources('commandes'));
 $tpl->setVar('Footer', Layout::getFooter());
+$tpl->setVar('BtnTop', Layout::getBtnTop());
 $tpl->setVar('JSSection', Layout::getJSSection());
 
 $tpl->pparse('display', 'main');

@@ -9,13 +9,15 @@ use App\Security\Csrf;
 use App\UI\Url;
 use App\Core\CacheManager;
 use App\Module\Adm\AdmView;
+use App\UI\View;
 
 final class AdmController
 {
     public static function index(): void
     {
         $pageTitle = 'Git.Docs - Administration';
-      
+
+        $message = View::consumeFlashMessage();
 
         //-------------------------------------------------------------------------------
 
@@ -26,7 +28,8 @@ final class AdmController
         $tpl->setVar([
             'Header'           => Layout::getHeader($pageTitle),
             'SectionHeader'    => Layout::getSectionHeader(),
-            'Navigation'       => Layout::getNavigation(),                        
+            'Navigation'       => Layout::getNavigation(),  
+            'Message'          => $message,                       
             'Url_adm_index'    => Url::format('/adm/index', [], true),
             'Url_adm_cache'    => Url::format('/adm/cache', [], true),
             'Footer'           => Layout::getFooter(),
@@ -39,7 +42,8 @@ final class AdmController
     public static function cache(): void
     {
         $pageTitle = 'Git.Docs - Administration';
-        $message = '';
+        $message = View::consumeFlashMessage();
+
 
         // Suppression fichier cache
         if (isset($_GET['delete'], $_GET['token'])) {
@@ -47,10 +51,12 @@ final class AdmController
                 $deleted = CacheManager::clearPage($_GET['delete']);
                 $message = $deleted
                     ? '<div class="alert alert-success text-center mt-3">Fichier cache supprimé : ' . htmlspecialchars($_GET['delete']) . '</div>'
-                    : '<div class="alert alert-warning text-center mt-3">Impossible de supprimer le fichier demandé.</div>';
+                    : '<div class="alert alert-danger text-center mt-3">Impossible de supprimer le fichier demandé.</div>';
             } else {
                 $message = '<div class="alert alert-danger text-center mt-3">Jeton CSRF invalide.</div>';
             }
+
+            View::redirectWithMessage(BASE_URL . '/adm/cache', $message);
         }
 
         // Suppression totale du cache
@@ -62,6 +68,8 @@ final class AdmController
             } else {
                 $message = '<div class="alert alert-danger text-center mt-3">Jeton CSRF invalide.</div>';
             }
+
+            View::redirectWithMessage(BASE_URL . '/adm/cache', $message);
         }
 
         // Génération du token

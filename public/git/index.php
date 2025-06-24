@@ -12,16 +12,19 @@ $tpl->setFile([
         'main'  => 'index.html'    
 ]);
 
+
 if (IS_PROD || isset($_GET['forceCache'])) {
     $tpl->enableCache(true);
     $tpl->setCacheDir(CACHE_PATH);
     $tpl->setCacheTTL(600); // 10 min en prod
 }
 
+
 // Blocs
 $tpl->setVar('Header', Layout::getHeader($pageTitle));
 $tpl->setVar('SectionHeader', Layout::getSectionHeader());
 $tpl->setVar('Navigation', Layout::getNavigation());
+$tpl->setVar('BtnTop', Layout::getBtnTop());
 $tpl->setVar('Footer', Layout::getFooter());
 $tpl->setVar('JSSection', Layout::getJSSection());
 

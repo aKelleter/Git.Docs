@@ -6,6 +6,7 @@ use App\UI\Layout;
 
 use App\Auth\Auth;
 use App\Security\Csrf;
+use App\UI\View;
 
 $error = '';
 
@@ -17,7 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!Auth::login($_POST['username'], $_POST['password'])) {
         $error = Layout::alert(T_("Nom d'utilisateur ou mot de passe invalide."), "danger", false);
     } else {
-        header('Location: ' . BASE_URL . '/adm/index');
+
+        View::redirect(BASE_URL . '/adm/index');
         exit;
     }
 }
