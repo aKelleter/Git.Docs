@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Module\Adm;
+namespace App\View\Adm;
 
 use App\Core\CacheManager;
 use App\Security\Csrf;

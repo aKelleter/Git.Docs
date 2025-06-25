@@ -3,8 +3,11 @@ declare(strict_types=1);
 
 use App\Module\Errors\ErrorsController;
 
+// Méthode OO MVC
 ErrorsController::error();
 
+
+// ANCIENNE METHODE (mais valide également)
 /*
 use App\UI\Layout;
 use App\UI\Template;

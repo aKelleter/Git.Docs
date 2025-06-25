@@ -2,8 +2,8 @@
 declare(strict_types=1);
 
 /**
- * Point d'entrée simplifié pour les débutants
- * -------------------------------------------
+ * Point d'entrée simplifié 
+ * -------------------------
  * Ce fichier redirige silencieusement vers le vrai point d'entrée
  * situé dans le dossier "public/", sans modifier l'URL affichée.
  * 

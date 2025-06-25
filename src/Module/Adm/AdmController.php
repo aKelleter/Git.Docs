@@ -8,7 +8,7 @@ use App\UI\Layout;
 use App\Security\Csrf;
 use App\UI\Url;
 use App\Core\CacheManager;
-use App\Module\Adm\AdmView;
+use App\View\Adm\AdmView;
 use App\UI\View;
 
 final class AdmController
@@ -32,6 +32,7 @@ final class AdmController
             'Message'          => $message,                       
             'Url_adm_index'    => Url::format('/adm/index', [], true),
             'Url_adm_cache'    => Url::format('/adm/cache', [], true),
+            'Url_adm_check'    => Url::format('/adm/check', [], true),
             'Footer'           => Layout::getFooter(),
             'JSSection'        => Layout::getJSSection(),
         ]);
@@ -90,6 +91,7 @@ final class AdmController
             'CacheMessage'     => $message,
             'Url_adm_index'    => Url::format('/adm/index', [], true),
             'Url_adm_cache'    => Url::format('/adm/cache', [], true),
+            'Url_adm_check'    => Url::format('/adm/check', [], true),
             'Footer'           => Layout::getFooter(),
             'JSSection'        => Layout::getJSSection(),
         ]);
