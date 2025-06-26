@@ -1,23 +1,6 @@
 <?php
 declare(strict_types=1);  
 
-use App\UI\Template;
-use App\UI\Layout;
+use App\Module\Git\GitController;
 
-$pageTitle = 'Git.Docs - Restauration';
-
-// -----------------------------------------------
-$tpl = new Template(ROOT_PATH . '/templates/git');
-$tpl->setFile([
-        'main'  => 'restaurer.html'    
-]);
-
-$tpl->setVar('Header', Layout::getHeader($pageTitle));
-$tpl->setVar('SectionHeader', Layout::getSectionHeader());
-$tpl->setVar('Navigation', Layout::getNavigation());
-$tpl->setVar('Ressources', Layout::getRessources('restaurer'));
-$tpl->setVar('BtnTop', Layout::getBtnTop());
-$tpl->setVar('Footer', Layout::getFooter());
-$tpl->setVar('JSSection', Layout::getJSSection());
-
-$tpl->pparse('display', 'main');
+GitController::restaurer();

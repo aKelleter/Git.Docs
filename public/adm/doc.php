@@ -5,4 +5,4 @@ use App\Security\AccessControl;
 use App\Module\Adm\AdmController;
 
 AccessControl::requireLogin();
-AdmController::index(); 
+AdmController::doc(); 

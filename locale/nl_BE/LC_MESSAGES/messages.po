@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2025-06-18 10:02+0200\n"
-"PO-Revision-Date: 2025-06-18 10:02+0200\n"
+"POT-Creation-Date: 2025-06-26 12:14+0200\n"
+"PO-Revision-Date: 2025-06-26 12:14+0200\n"
 "Last-Translator: Alain Kelleter <alain.kelleter@kelleter.be>\n"
 "Language-Team: \n"
 "Language: nl_BE\n"
@@ -48,34 +48,35 @@ msgstr "Administratie"
 msgid "Identification"
 msgstr "Identificatie"
 
-#: locale/strToTranslate.php:3
+#: locale/strToTranslate.php:5
+msgid "L'application a généré une erreur"
+msgstr "De applicatie heeft een fout gegenereerd"
+
+#: locale/strToTranslate.php:6
 msgid "Bienvenue sur"
 msgstr "Welkom bij"
 
-#: locale/strToTranslate.php:4
-msgid "Bonne navigation !"
-msgstr "Veel surfplezier !"
-
-#: locale/strToTranslate.php:5
+#: locale/strToTranslate.php:7
 msgid "Découvrir Git"
 msgstr "Ontdek Git"
 
-#: locale/strToTranslate.php:6
+#: locale/strToTranslate.php:8
 msgid "Mot de passe"
 msgstr "Wachtwoord"
 
-#: locale/strToTranslate.php:7
+#: locale/strToTranslate.php:9
 msgid "Nom d'utilisateur"
 msgstr "Gebruikersnaam"
 
-#: locale/strToTranslate.php:8
-msgid ""
-"N’hésitez pas à explorer le menu pour accéder aux différentes rubriques."
-msgstr ""
-"Voel je vrij om het menu te verkennen om toegang te krijgen tot de "
-"verschillende secties."
+#: locale/strToTranslate.php:10
+msgid "Se connecter"
+msgstr "Aanmelden"
 
-#: locale/strToTranslate.php:9
+#: locale/strToTranslate.php:11
+msgid "Veuillez vous identifier"
+msgstr "Identificeer uzelf"
+
+#: public/git/_classic_sample.php:32 src/Module/Git/GitController.php:44
 msgid ""
 "Ce site a pour objectif de rassembler et de présenter, de façon claire et "
 "synthétique, les principales commandes Git utiles au quotidien. Que vous "
@@ -90,22 +91,45 @@ msgstr ""
 "beheren van je commits, of het vinden van de essentiële commando's met "
 "slechts een paar klikken."
 
-#: locale/strToTranslate.php:10
-msgid "Se connecter"
-msgstr "Aanmelden"
+#: public/git/_classic_sample.php:33 src/Module/Git/GitController.php:45
+msgid ""
+"N’hésitez pas à explorer le menu pour accéder aux différentes rubriques."
+msgstr ""
+"Voel je vrij om het menu te verkennen om toegang te krijgen tot de "
+"verschillende secties."
 
-#: locale/strToTranslate.php:11
-msgid "Veuillez vous identifier"
-msgstr "Identificeer uzelf"
+#: public/git/_classic_sample.php:34 src/Module/Git/GitController.php:46
+msgid "Bonne navigation !"
+msgstr "Veel surfplezier !"
 
-#: public/login/index.php:18
+#: src/Module/Errors/ErrorsController.php:32
+msgid "Erreur - L'application a généré une erreur, celle-ci a été consignée"
+msgstr "Error - De applicatie heeft een fout gegenereerd die is gelogd"
+
+#: src/Module/Errors/ErrorsController.php:66
+msgid "Erreur 500 - Erreur de serveur interne"
+msgstr "Fout 500 - Interne serverfout"
+
+#: src/Module/Errors/ErrorsController.php:99
+msgid "Erreur 404 - Cette ressource n'existe pas"
+msgstr "Fout 404 - Deze bron bestaat niet"
+
+#: src/Module/Login/LoginController.php:35
 msgid "Nom d'utilisateur ou mot de passe invalide."
 msgstr "Ongeldige gebruikersnaam of wachtwoord."
 
-#: src/Router/Router.php:69
+#: src/Router/Router.php:55
+msgid "Chemin non autorisé"
+msgstr "Onbevoegd pad"
+
+#: src/Router/Router.php:73
 msgid "Page introuvable."
 msgstr "Pagina niet gevonden."
 
-#: src/UI/Layout.php:154
+#: src/Router/Router.php:74
+msgid "La page demandée n'hexiste pas."
+msgstr "De opgevraagde pagina wordt niet weergegeven."
+
+#: src/UI/Layout.php:155
 msgid "Déconnexion"
 msgstr "Afmelden"

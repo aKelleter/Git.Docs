@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2025-06-18 10:02+0200\n"
-"PO-Revision-Date: 2025-06-18 10:02+0200\n"
+"POT-Creation-Date: 2025-06-26 12:15+0200\n"
+"PO-Revision-Date: 2025-06-26 12:15+0200\n"
 "Last-Translator: Alain Kelleter <alain.kelleter@kelleter.be>\n"
 "Language-Team: \n"
 "Language: fr_BE\n"
@@ -48,38 +48,24 @@ msgstr ""
 msgid "Identification"
 msgstr ""
 
-#: locale/strToTranslate.php:3
-msgid "Bienvenue sur"
-msgstr ""
-
-#: locale/strToTranslate.php:4
-msgid "Bonne navigation !"
-msgstr ""
-
 #: locale/strToTranslate.php:5
-msgid "Découvrir Git"
+msgid "L'application a généré une erreur"
 msgstr ""
 
 #: locale/strToTranslate.php:6
-msgid "Mot de passe"
+msgid "Bienvenue sur"
 msgstr ""
 
 #: locale/strToTranslate.php:7
-msgid "Nom d'utilisateur"
+msgid "Découvrir Git"
 msgstr ""
 
 #: locale/strToTranslate.php:8
-msgid ""
-"N’hésitez pas à explorer le menu pour accéder aux différentes rubriques."
+msgid "Mot de passe"
 msgstr ""
 
 #: locale/strToTranslate.php:9
-msgid ""
-"Ce site a pour objectif de rassembler et de présenter, de façon claire et "
-"synthétique, les principales commandes Git utiles au quotidien. Que vous "
-"soyez débutant ou utilisateur confirmé, vous trouverez ici des rappels "
-"rapides pour manipuler les branches, gérer vos commits, ou retrouver les "
-"commandes essentielles à l’aide de quelques clics."
+msgid "Nom d'utilisateur"
 msgstr ""
 
 #: locale/strToTranslate.php:10
@@ -90,14 +76,52 @@ msgstr ""
 msgid "Veuillez vous identifier"
 msgstr ""
 
-#: public/login/index.php:18
+#: public/git/_classic_sample.php:32 src/Module/Git/GitController.php:44
+msgid ""
+"Ce site a pour objectif de rassembler et de présenter, de façon claire et "
+"synthétique, les principales commandes Git utiles au quotidien. Que vous "
+"soyez débutant ou utilisateur confirmé, vous trouverez ici des rappels "
+"rapides pour manipuler les branches, gérer vos commits, ou retrouver les "
+"commandes essentielles à l’aide de quelques clics."
+msgstr ""
+
+#: public/git/_classic_sample.php:33 src/Module/Git/GitController.php:45
+msgid ""
+"N’hésitez pas à explorer le menu pour accéder aux différentes rubriques."
+msgstr ""
+
+#: public/git/_classic_sample.php:34 src/Module/Git/GitController.php:46
+msgid "Bonne navigation !"
+msgstr ""
+
+#: src/Module/Errors/ErrorsController.php:32
+msgid "Erreur - L'application a généré une erreur, celle-ci a été consignée"
+msgstr ""
+
+#: src/Module/Errors/ErrorsController.php:66
+msgid "Erreur 500 - Erreur de serveur interne"
+msgstr ""
+
+#: src/Module/Errors/ErrorsController.php:99
+msgid "Erreur 404 - Cette ressource n'existe pas"
+msgstr ""
+
+#: src/Module/Login/LoginController.php:35
 msgid "Nom d'utilisateur ou mot de passe invalide."
 msgstr ""
 
-#: src/Router/Router.php:69
+#: src/Router/Router.php:55
+msgid "Chemin non autorisé"
+msgstr ""
+
+#: src/Router/Router.php:73
 msgid "Page introuvable."
 msgstr ""
 
-#: src/UI/Layout.php:154
+#: src/Router/Router.php:74
+msgid "La page demandée n'hexiste pas."
+msgstr ""
+
+#: src/UI/Layout.php:155
 msgid "Déconnexion"
 msgstr ""

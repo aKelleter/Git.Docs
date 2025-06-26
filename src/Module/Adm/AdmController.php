@@ -13,6 +13,11 @@ use App\UI\View;
 
 final class AdmController
 {
+    /**
+     * Contrôleur de la page public/adm/index.php
+     * 
+     * @return void 
+     */
     public static function index(): void
     {
         $pageTitle = 'Git.Docs - Administration';
@@ -32,7 +37,8 @@ final class AdmController
             'Message'          => $message,                       
             'Url_adm_index'    => Url::format('/adm/index', [], true),
             'Url_adm_cache'    => Url::format('/adm/cache', [], true),
-            'Url_adm_check'    => Url::format('/adm/check', [], true),
+            'Url_adm_check'    => Url::format('/adm/script_check', [], true),
+            'Url_adm_doc'      => Url::format('/adm/doc', [], true),
             'Footer'           => Layout::getFooter(),
             'JSSection'        => Layout::getJSSection(),
         ]);
@@ -40,6 +46,11 @@ final class AdmController
         $tpl->pparse('display', 'main');
     }
 
+    /**
+     * Contrôleur de la page public/adm/cache.php
+     * 
+     * @return void 
+     */
     public static function cache(): void
     {
         $pageTitle = 'Git.Docs - Administration';
@@ -91,7 +102,8 @@ final class AdmController
             'CacheMessage'     => $message,
             'Url_adm_index'    => Url::format('/adm/index', [], true),
             'Url_adm_cache'    => Url::format('/adm/cache', [], true),
-            'Url_adm_check'    => Url::format('/adm/check', [], true),
+            'Url_adm_check'    => Url::format('/adm/script_check', [], true),
+            'Url_adm_doc'      => Url::format('/adm/doc', [], true),
             'Footer'           => Layout::getFooter(),
             'JSSection'        => Layout::getJSSection(),
         ]);
@@ -99,5 +111,38 @@ final class AdmController
         $tpl->pparse('display', 'main');
     }
 
+    /**
+     * Contrôleur de la page public/adm/doc.php
+     * 
+     * @return void 
+     */
+    public static function doc(): void
+    {
+        $pageTitle = 'Git.Docs - Documentation';
+
+        $message = View::consumeFlashMessage();
+
+        //-------------------------------------------------------------------------------
+
+        // Génération de la vue
+        $tpl = new Template(ROOT_PATH . '/templates/adm');
+        $tpl->setFile(['main' => 'doc.html']);
+
+        $tpl->setVar([
+            'Header'           => Layout::getHeader($pageTitle),
+            'SectionHeader'    => Layout::getSectionHeader(),
+            'Navigation'       => Layout::getNavigation(),  
+            'Message'          => $message,                       
+            'Url_adm_index'    => Url::format('/adm/index', [], true),
+            'Url_adm_cache'    => Url::format('/adm/cache', [], true),
+            'Url_adm_check'    => Url::format('/adm/script_check', [], true),
+            'Url_adm_doc'      => Url::format('/adm/doc', [], true),
+            'Documentation'    => file_get_contents(ROOT_PATH . '/public/adm/documentation.html'),
+            'Footer'           => Layout::getFooter(),
+            'JSSection'        => Layout::getJSSection(),
+        ]);
+
+        $tpl->pparse('display', 'main');
+    }
 
 }

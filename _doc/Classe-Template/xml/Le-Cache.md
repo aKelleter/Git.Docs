@@ -1,7 +1,17 @@
 Si on veut forcer le cache même en dev, on peut utiliser une URL comme :
 
-    /prj/Git.Docs/?forceCache=1
+```
+    monsite/index?forceCache=1
+```
+Exemple de code (dans votre controler) pour activer et configurer le cache:
 
+```
+    if (IS_PROD || isset($_GET['forceCache'])) {
+                $tpl->enableCache(true);
+                $tpl->setCacheDir(CACHE_PATH);
+                $tpl->setCacheTTL(600); // 10 min en prod
+    }    
+```
 
 ATTENTION !!!
 Le cache améliore les performances, mais introduit un risque évident :
@@ -23,7 +33,10 @@ Ne mets en cache que ce qui :
 2. Réduire le TTL (durée de vie) du cache
 Actuellement nous avons :
 
-$tpl->setCacheTTL(600); // 10 minutes
+```
+    $tpl->setCacheTTL(600); // 10 minutes    
+```
+
 On peut descendre à :
     - 60 secondes pour des pages semi-dynamiques,
     - ou utiliser une valeur dynamique basée sur le contenu.
@@ -31,15 +44,20 @@ On peut descendre à :
 3. Purger manuellement le cache sur modification
 Quand on modifie une donnée, il faut appeler :
 
-\App\Core\CacheManager::clear();
+```
+    \App\Core\CacheManager::clear();
+```
 On peut même l’automatiser par type de contenu si c'est un CMS :
-Post::update(...);
-CacheManager::clearViewCache('post-' . $postId);
-
+```
+    Post::update(...);
+    CacheManager::clearViewCache('post-' . $postId);
+```
 4. Ne jamais cacher les pages privées / admin
 Les pages avec sessions, données utilisateurs, ou contenu sensible :
     - jamais en cache fichier
     - générées à la volée
 
 Ne pas activer le cache dans admin/
+
+
 

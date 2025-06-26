@@ -60,15 +60,13 @@ final class Router
             require $file;
         } else {
             http_response_code(404);
-            // Version “page dédiée” (si /public/errors/404.php existe) :
-          
+            // Version “page dédiée” (si /public/errors/404.php existe) :          
             $errorPage = ROOT_PATH . '/public/errors/404.php';
             //DEBUG//echo $errorPage;
 
-            if (file_exists($errorPage)) {
-                //echo 'je passe ici';
+            if (file_exists($errorPage)) {                
                 require $errorPage;
-                //exit;
+                exit;
             } else {
                 // Fallback :
                 echo '<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><title>Error 404</title></head><body>';
