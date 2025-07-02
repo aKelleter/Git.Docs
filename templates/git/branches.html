@@ -157,6 +157,15 @@ HEAD is now at 77401a5 Minor update on detenu-functions.php
             <h2 class="card-title text-blue-dark h6">13. Récupérer une branche distante dans le dépôt local</h2>
             <pre><code class="language-bash">git fetch [nom_du_dépôt_distant] [nom_de_la_branche_distante]:[nom_de_la_branche_locale]
 
+# ou plus simplement :
+git fetch
+# La commande git fetch communique avec un dépôt distant et rapporte toutes les informations qui sont dans ce dépôt qui ne sont pas 
+# dans le vôtre et les stocke dans votre base de données locale.
+# Avec --all, Git parcourt tous les dépôts distants que vous avez configurés (par exemple, origin, upstream, etc.) et récupère les 
+# dernières informations de chacun.
+# Sans -all uniquement le dépôt "origin"
+git fetch -all 
+
 # Se positionner ensuite sur la branche fraîchement récupérée 
 # avec la commande checkout ou switch
 git checkout [nom_de_la_branche_locale]
