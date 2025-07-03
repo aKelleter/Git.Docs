@@ -1,0 +1,72 @@
+{Header}
+<body>    
+    {SectionHeader}
+    <main class="container mb-5"> 
+    {Navigation}
+    <nav class="navbar navbar-expand-md navbar-blue shadow-sm mt-4 mb-4 rounded-3">
+        <div class="container">
+            <ul class="nav nav-pills flex-wrap gap-2 justify-content-center">                  
+                <li class="nav-item"><a class="nav-link" href="#git-add">Ajouter un fichier</a></li>
+                <li class="nav-item"><a class="nav-link" href="#git-add-f">Forcer l'ajout de fichiers</a></li>
+                <li class="nav-item"><a class="nav-link" href="#git-rm">Retirer un fichier de l'index</a></li>
+                <li class="nav-item"><a class="nav-link" href="#git-rm-f">Forcer la suppression des fichiers</a></li>
+                <li class="nav-item"><a class="nav-link" href="#git-mv">Renommer un fichier</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="git-add" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-blue-dark h6">1. Ajouter un fichier (nouveaux et/ou modifiés) à l'index</h2>
+            <pre><code class="language-bash">
+git add &lt;fichier&gt;   # Ajouter un fichier spécifique
+git add .             # Ajouter tous les fichiers modifiés et nouveaux
+            </code></pre>
+        </div>
+    </section>
+    <section id="git-add-f" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">  
+            <h2 class="card-title text-blue-dark h6">2. Forcer l'ajout des fichiers</h2>
+            <pre><code class="language-bash">
+git add -f *            # Forcer l'ajout de tous les fichiers, y compris ceux ignorés par .gitignore
+git add -f &lt;fichier&gt;   # Forcer l'ajout d'un fichier spécifique
+            </code></pre>
+        </div>
+    </section>
+    <section id="git-rm" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">  
+            <h2 class="card-title text-blue-dark h6">3. Retirer un fichier de l'index</h2>
+            <pre><code class="language-bash">
+git rm --cached &lt;fichier&gt;   # Retirer un fichier de l'index (staging area)
+# La commande git rm --cached <fichier> est utilisée pour désindexer un fichier de Git tout en le conservant dans votre répertoire de travail. 
+# En d'autres termes, Git va oublier le fichier, mais il ne sera pas supprimé de votre disque dur.
+
+# Exemple :
+# Vous voulez ajouter un fichier à votre .gitignore après l'avoir déjà committé. En désindexant le fichier d'abord, vous pouvez ensuite 
+# l'ajouter à votre .gitignore pour vous assurer qu'il ne sera plus jamais suivi par Git. Si vous ajoutiez simplement le fichier au 
+# .gitignore sans le désindexer, Git continuerait à le suivre car il est déjà dans son historique.
+            </code></pre>
+        </div>
+    </section>
+    <section id="git-rm-f" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">  
+            <h2 class="card-title text-blue-dark h6">4. Forcer la suppression des fichiers</h2>
+            <pre><code class="language-bash">
+git rm -f &lt;fichier&gt;   # Forcer la suppression d'un fichier
+            </code></pre>
+        </div>
+    </section>   
+    <section id="git-mv" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">  
+            <h2 class="card-title text-blue-dark h6">5. Renommer un fichier</h2>
+            <pre><code class="language-bash">
+git mv &lt;ancien_fichier&gt; &lt;nouveau_fichier&gt;   # Renommer un fichier
+            </code></pre>
+        </div>
+    </section>
+    {Ressources}
+    {Footer}
+    </main>
+    {BtnTop}
+    {JSSection}
+</body>
+</html>

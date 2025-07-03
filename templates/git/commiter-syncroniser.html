@@ -1,0 +1,69 @@
+{Header}
+<body>    
+    {SectionHeader}
+    <main class="container mb-5"> 
+    {Navigation}
+    <nav class="navbar navbar-expand-md navbar-blue shadow-sm mt-4 mb-4 rounded-3">
+        <div class="container">
+            <ul class="nav nav-pills flex-wrap gap-2 justify-content-center">                  
+                <li class="nav-item"><a class="nav-link" href="#commit">Commiter les modifications</a></li>
+                <li class="nav-item"><a class="nav-link" href="#push">Publier les modifications</a></li>
+                <li class="nav-item"><a class="nav-link" href="#remote">Connecter un dépôt local à un dépôt distant</a></li>
+                <li class="nav-item"><a class="nav-link" href="#pull">Mettre à jour le dépôt local</a></li>
+            </ul>
+        </div>
+    </nav>   
+    <section id="commit" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-blue-dark h6">1. Commiter les modifications</h2>
+            <pre><code class="language-bash">
+git add .
+git commit -m "Message de commit"
+# Si vous ommetez le paramètres -m GIT ouvrira l'éditeur qui est enregistré dans la configuration
+            </code></pre>
+        </div>
+    </section>   
+    <section id="push" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-blue-dark h6">2. Publier les modifications vers le dépôt distant</h2>
+            <pre><code class="language-bash">
+git push
+# Si vous ommettez le nom de la branche, GIT publiera vers la branche
+# actuellement active. Si vous souhaitez publier vers une autre branche,
+# vous pouvez spécifier le nom de la branche comme ceci :
+git push origin nom_de_la_branche
+   
+            </code></pre>
+        </div>
+    </section>   
+    <section id="remote" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-blue-dark h6">3. Connecter un dépôt local à un dépôt distant</h2>
+            <pre><code class="language-bash">
+git remote add origin <url_du_depot_distant>
+git branch -M main
+git push -u origin main
+# Si vous avez déjà un dépôt local et que vous souhaitez le connecter à un dépôt distant,
+# vous pouvez utiliser la commande suivante :
+# git remote add origin <url_du_depot_distant>
+# Ensuite, vous pouvez pousser vos modifications vers le dépôt distant avec :
+# git push -u origin main
+            </code></pre>
+        </div>
+    </section>   
+    <section id="pull" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-blue-dark h6">4. Mettre à jour le dépôt local avec le dépôt distant</h2>
+            <pre><code class="language-bash">
+git pull origin main
+            </code></pre>
+        </div>
+    </section>
+
+    {Ressources}    
+    {Footer}
+    </main>
+    {BtnTop}
+    {JSSection}
+</body>
+</html>

@@ -26,9 +26,14 @@ declare(strict_types=1);
 return [
     'git/index' => ['label' => T_('Accueil'), 'auth' => null],                 // toujours visible
     T_('Les rubriques') => [
-        'git/commandes' => ['label' => T_('Commandes Git'), 'auth' => null],
-        'git/restaurer' => ['label' => T_('Restaurer'), 'auth' => null],
-        'git/branches' => ['label' => T_('Les branches'), 'auth' => null],
+        'git/cloner-ajouter' => ['label' => T_('1. Cloner - Ajouter un dépôt'), 'auth' => null],
+        'git/ajouter-supprimer' => ['label' => T_('2. Ajouter - Supprimer - Renommer'), 'auth' => null],
+        'git/commiter-syncroniser' => ['label' => T_('3. Commiter et syncroniser '), 'auth' => null],
+        'git/annuler-actions' => ['label' => T_('4. Annuler des actions '), 'auth' => null],
+
+        
+        'git/branches' => ['label' => T_('5. Les branches'), 'auth' => null],
+        'git/restaurer' => ['label' => T_('6. Restaurer'), 'auth' => null],    
     ],
     'links/index' => ['label' => T_('Liens'), 'auth' => null],
     'adm/index' => ['label' => T_('Administration'), 'auth' => true],          // visible uniquement connecté

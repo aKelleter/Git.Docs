@@ -46,7 +46,7 @@ final class Layout
     public static function getSectionHeader(string $path = './', string $subtitle = ''): string
     {
         $app_name = APP_NAME;
-        $html_subtitle = !empty($subtitle) ? "<h2 class=\"text-white\"> - $subtitle - </h2>" : '';
+        $html_subtitle = !empty($subtitle) ? "<h2 class=\"text-yellow\"> - $subtitle - </h2>" : '';
 
         return <<<HTML
         <header class="py-5 mb-4 text-center header-custom">

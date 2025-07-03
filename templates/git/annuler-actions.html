@@ -1,0 +1,64 @@
+{Header}
+<body>    
+    {SectionHeader}
+    <main class="container mb-5"> 
+    {Navigation}
+    <nav class="navbar navbar-expand-md navbar-blue shadow-sm mt-4 mb-4 rounded-3">
+        <div class="container">
+            <ul class="nav nav-pills flex-wrap gap-2 justify-content-center">                  
+                <li class="nav-item"><a class="nav-link" href="#commit-amend">Modifier le message du dernier commit</a></li>
+                <li class="nav-item"><a class="nav-link" href="#git-reset">Désindexer un fichier</a></li>
+                <li class="nav-item"><a class="nav-link" href="#git-reset-fichier">Réinitialiser un fichier déjà modifié</a></li>
+            </ul>
+        </div>
+    </nav>    
+    <section id="commit-ament" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-blue-dark h6">1. Modifier le message du dernier commit</h2>
+            <pre><code class="language-bash">
+git commit --amend -m "Nouveau message du commit"
+            </code></pre>
+        </div>
+    </section>   
+    
+    <section id="git-reset" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-blue-dark h6">2. Désindexer un fichier</h2>
+            <pre><code class="language-bash">
+# Pour annuler l'indexation d'un fichier que vous avez ajouté par erreur (par exemple, avec git add *), 
+# utilisez la commande suivante :
+git restore --staged &lt;fichier&gt;
+
+# Ou son équivalent plus ancien (qui fonctionne toujours) :
+git reset HEAD &lt;fichier&gt;
+
+# git reset HEAD <fichier> fait la même chose que git restore --staged <fichier> dans ce contexte, mais git reset est une commande 
+# plus "puissante" et peut être utilisée pour de nombreuses autres opérations (comme réinitialiser une branche à un commit précédent),
+# ce qui peut parfois prêter à confusion pour les débutants. C'est pourquoi git restore a été introduit pour des cas d'utilisation 
+# plus spécifiques et plus sûrs.
+            </code></pre>
+        </div>
+    </section>
+    
+    <section id="git-reset-fichier" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-blue-dark h6">3. Réinitialiser un fichier déjà modifié</h2>
+            <pre><code class="language-bash">
+# Si vous avez modifié un fichier et que vous souhaitez annuler ces modifications,
+# vous pouvez utiliser la commande suivante :
+git restore &lt;fichier&gt;
+# Ou son équivalent plus ancien :
+git checkout -- &lt;fichier&gt;
+# git checkout -- <fichier> est l'ancienne méthode pour annuler les modifications dans un fichier.
+# Il est toujours fonctionnel, mais git restore est plus explicite et recommandé pour les nouvelles versions de Git.
+            </code></pre>
+        </div>
+    </section>
+
+    {Ressources}
+    {Footer}
+    </main>
+    {BtnTop}
+    {JSSection}
+</body>
+</html>

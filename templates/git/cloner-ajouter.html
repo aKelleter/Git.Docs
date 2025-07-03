@@ -1,0 +1,112 @@
+{Header}
+<body>    
+    {SectionHeader}
+    <main class="container mb-5"> 
+    {Navigation}
+    <nav class="navbar navbar-expand-md navbar-blue shadow-sm mt-4 mb-4 rounded-3">
+        <div class="container">
+            <ul class="nav nav-pills flex-wrap gap-2 justify-content-center">                  
+                <li class="nav-item"><a class="nav-link" href="#create-dir">Créer un répertoire</a></li>
+                <li class="nav-item"><a class="nav-link" href="#git-init">Initialiser un dépôt Git</a></li>
+                <li class="nav-item"><a class="nav-link" href="#git-remote">Ajouter un dépôt distant</a></li>
+                <li class="nav-item"><a class="nav-link" href="#git-remote-v">Afficher les dépôts distants</a></li>
+                <li class="nav-item"><a class="nav-link" href="#git-add">Ajouter un fichier</a></li>
+                <li class="nav-item"><a class="nav-link" href="#git-commit">Valider les modifications</a></li>
+                <li class="nav-item"><a class="nav-link" href="#git-push">Pousser les modifications</a></li>
+                <li class="nav-item"><a class="nav-link" href="#git-clone">Cloner un dépôt distant</a></li>
+                <li class="nav-item"><a class="nav-link" href="#git-remote-set-url">Mettre à jour l'URL d'un dépôt distant</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="create-dir" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-blue-dark h6">1. Créer un répertoire de travail</h2>
+            <pre><code class="language-bash">
+mkdir /path/to/your/project
+
+# Se placer dans le répertoire
+cd /path/to/your/project
+            </code></pre>
+        </div>
+    </section>
+    <section id="git-init" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">  
+            <h2 class="card-title text-blue-dark h6">2. Initialiser un dépôt Git</h2>
+            <pre><code class="language-bash">
+# Initialiser un dépôt Git
+git init
+            </code></pre>
+        </div>
+    </section>
+    <section id="git-remote" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">  
+            <h2 class="card-title text-blue-dark h6">3. Ajouter un dépôt distant Github</h2>
+            <pre><code class="language-bash">
+# Ajouter un dépôt distant
+git remote add origin https://github.com/username/repo.git
+            </code></pre>
+        </div>
+    </section>
+    <section id="git-remote-v" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">  
+            <h2 class="card-title text-blue-dark h6">4. Afficher les dépôts distants</h2>
+            <pre><code class="language-bash">
+# Afficher les dépôts distants
+git remote -v
+            </code></pre>
+        </div>
+    </section>
+    <section id="git-add" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">  
+            <h2 class="card-title text-blue-dark h6">5. Ajouter un fichier</h2>
+            <pre><code class="language-bash">
+# Ajouter un fichier
+git add &lt;nom_du_fichier&gt;
+# Exemple : git add index.html
+            </code></pre>
+        </div>
+    </section>
+    <section id="git-commit" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">  
+            <h2 class="card-title text-blue-dark h6">6. Valider les modifications</h2>
+            <pre><code class="language-bash">
+# Valider les modifications
+git commit -m "Message de validation"
+            </code></pre>
+        </div>
+    </section>
+    <section id="git-push" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">  
+            <h2 class="card-title text-blue-dark h6">7. Pousser les modifications</h2>
+            <pre><code class="language-bash">
+# Pousser les modifications
+git push -u origin main
+            </code></pre>
+        </div>
+    </section>
+    <section id="git-clone" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">  
+            <h2 class="card-title text-blue-dark h6">8. Cloner un dépôt distant</h2>
+            <pre><code class="language-bash">
+# Cloner un dépôt distant
+git clone https://github.com/username/repo.git
+            </code></pre>
+        </div>
+    </section>    
+    <section id="git-remote-set-url" class="card card-blue mb-4 shadow-sm">
+        <div class="card-body">  
+            <h2 class="card-title text-blue-dark h6">9. Mettre à jour l'URL d'un dépôt distant</h2>
+            <pre><code class="language-bash">
+# Mettre à jour l'URL d'un dépôt distant
+git remote set-url origin https://github.com/username/new-repo.git
+            </code></pre>
+        </div>
+    </section>
+
+    {Ressources}   
+    {Footer}
+    </main>
+    {BtnTop}
+    {JSSection}
+</body>
+</html>

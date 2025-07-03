@@ -59,15 +59,16 @@ final class GitController
     public static function branches(): void
     {
         $pageTitle = 'Git.Docs - Les branches';
+        $SubTitle = T_('Les branches');
 
         // -----------------------------------------------
         $tpl = new Template(ROOT_PATH . '/templates/git');
         $tpl->setFile([
                 'main'  => 'branches.html'    
         ]);
-
+       
         $tpl->setVar('Header', Layout::getHeader($pageTitle));
-        $tpl->setVar('SectionHeader', Layout::getSectionHeader());
+        $tpl->setVar('SectionHeader', Layout::getSectionHeader('./', $SubTitle));
         $tpl->setVar('Navigation', Layout::getNavigation());
         $tpl->setVar('Ressources', Layout::getRessources('branches'));
         $tpl->setVar('BtnTop', Layout::getBtnTop());
@@ -88,6 +89,7 @@ final class GitController
     public static function commandes(): void
     {
         $pageTitle = 'Git.Docs - Commandes génériques';
+        $SubTitle = T_('Commandes génériques');
 
         // -----------------------------------------------
         $tpl = new Template(ROOT_PATH . '/templates/git');
@@ -96,7 +98,7 @@ final class GitController
         ]);
 
         $tpl->setVar('Header', Layout::getHeader($pageTitle));
-        $tpl->setVar('SectionHeader', Layout::getSectionHeader());
+        $tpl->setVar('SectionHeader', Layout::getSectionHeader('./', $SubTitle));
         $tpl->setVar('Navigation', Layout::getNavigation());
         $tpl->setVar('Ressources', Layout::getRessources('commandes'));
         $tpl->setVar('Footer', Layout::getFooter());
@@ -117,6 +119,7 @@ final class GitController
     public static function restaurer(): void
     {
         $pageTitle = 'Git.Docs - Restauration';
+        $SubTitle = T_('Restauration');
 
         // -----------------------------------------------
         $tpl = new Template(ROOT_PATH . '/templates/git');
@@ -125,11 +128,129 @@ final class GitController
         ]);
 
         $tpl->setVar('Header', Layout::getHeader($pageTitle));
-        $tpl->setVar('SectionHeader', Layout::getSectionHeader());
+        $tpl->setVar('SectionHeader', Layout::getSectionHeader('./', $SubTitle));
         $tpl->setVar('Navigation', Layout::getNavigation());
         $tpl->setVar('Ressources', Layout::getRessources('restaurer'));
         $tpl->setVar('BtnTop', Layout::getBtnTop());
         $tpl->setVar('Footer', Layout::getFooter());
+        $tpl->setVar('JSSection', Layout::getJSSection());
+
+        // Inclusion des chaînes de caractères à traduire
+        require_once ROOT_PATH . '/locale/strToTranslate.php';
+
+        $tpl->pparse('display', 'main');
+    }
+
+    /**
+     * Contrôleur de la page public/git/cloner-ajouter.php
+     * 
+     * @return void 
+     */
+    public static function clonerAjouter(): void
+    {
+        $pageTitle = 'Git.Docs - Cloner - Ajouter un dépôt';
+        $SubTitle = T_('Cloner / Ajouter un dépôt');
+
+        // -----------------------------------------------
+        $tpl = new Template(ROOT_PATH . '/templates/git');
+        $tpl->setFile([
+                'main'  => 'cloner-ajouter.html'    
+        ]);
+
+        $tpl->setVar('Header', Layout::getHeader($pageTitle));
+        $tpl->setVar('SectionHeader', Layout::getSectionHeader('./', $SubTitle));
+        $tpl->setVar('Navigation', Layout::getNavigation());
+        $tpl->setVar('Ressources', Layout::getRessources('cloner-ajouter'));
+        $tpl->setVar('Footer', Layout::getFooter());
+        $tpl->setVar('BtnTop', Layout::getBtnTop());
+        $tpl->setVar('JSSection', Layout::getJSSection());
+
+        // Inclusion des chaînes de caractères à traduire
+        require_once ROOT_PATH . '/locale/strToTranslate.php';
+
+        $tpl->pparse('display', 'main');
+    }
+
+    /**
+     * Contrôleur de la page public/git/ajouter-supprimer.php
+     * 
+     * @return void 
+     */
+    public static function ajouterSupprimer(): void
+    {
+        $pageTitle = 'Git.Docs - Ajouter / Supprimer un dépôt';
+        $SubTitle = T_('Ajouter / Supprimer un dépôt');
+
+        // -----------------------------------------------
+        $tpl = new Template(ROOT_PATH . '/templates/git');
+        $tpl->setFile([
+            'main'  => 'ajouter-supprimer.html'
+        ]);
+
+        $tpl->setVar('Header', Layout::getHeader($pageTitle));
+        $tpl->setVar('SectionHeader', Layout::getSectionHeader('./', $SubTitle));
+        $tpl->setVar('Navigation', Layout::getNavigation());
+        $tpl->setVar('Ressources', Layout::getRessources('ajouter-supprimer'));
+        $tpl->setVar('Footer', Layout::getFooter());
+        $tpl->setVar('BtnTop', Layout::getBtnTop());
+        $tpl->setVar('JSSection', Layout::getJSSection());
+
+        // Inclusion des chaînes de caractères à traduire
+        require_once ROOT_PATH . '/locale/strToTranslate.php';
+
+        $tpl->pparse('display', 'main');
+    }
+    /**
+     * Contrôleur de la page public/git/commiter-syncroniser.php
+     * 
+     * @return void 
+     */
+    public static function commiterSyncroniser(): void
+    {
+        $pageTitle = 'Git.Docs - Commiter et synchroniser';
+        $SubTitle = T_('Commiter et synchroniser');
+
+        // -----------------------------------------------
+        $tpl = new Template(ROOT_PATH . '/templates/git');
+        $tpl->setFile([
+            'main'  => 'commiter-syncroniser.html'
+        ]);
+
+        $tpl->setVar('Header', Layout::getHeader($pageTitle));
+        $tpl->setVar('SectionHeader', Layout::getSectionHeader('./', $SubTitle));
+        $tpl->setVar('Navigation', Layout::getNavigation());
+        $tpl->setVar('Ressources', Layout::getRessources('commiter-syncroniser'));
+        $tpl->setVar('Footer', Layout::getFooter());
+        $tpl->setVar('BtnTop', Layout::getBtnTop());
+        $tpl->setVar('JSSection', Layout::getJSSection());
+
+        // Inclusion des chaînes de caractères à traduire
+        require_once ROOT_PATH . '/locale/strToTranslate.php';
+
+        $tpl->pparse('display', 'main');
+    }
+    /**
+     * Contrôleur de la page public/git/annuler-actions.php
+     * 
+     * @return void 
+     */
+    public static function annulerActions(): void
+    {
+        $pageTitle = 'Git.Docs - Annuler des actions';
+        $SubTitle = T_('Annuler des actions');
+
+        // -----------------------------------------------
+        $tpl = new Template(ROOT_PATH . '/templates/git');
+        $tpl->setFile([
+            'main'  => 'annuler-actions.html'
+        ]);
+
+        $tpl->setVar('Header', Layout::getHeader($pageTitle));
+        $tpl->setVar('SectionHeader', Layout::getSectionHeader('./', $SubTitle));
+        $tpl->setVar('Navigation', Layout::getNavigation());
+        $tpl->setVar('Ressources', Layout::getRessources('annuler-actions'));
+        $tpl->setVar('Footer', Layout::getFooter());
+        $tpl->setVar('BtnTop', Layout::getBtnTop());
         $tpl->setVar('JSSection', Layout::getJSSection());
 
         // Inclusion des chaînes de caractères à traduire
