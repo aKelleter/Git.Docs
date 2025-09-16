@@ -172,7 +172,25 @@ git checkout [nom_de_la_branche_locale]
             </code></pre>
             </div>
         </section>
-        {Ressources}   
+        <section id="check-if-merged" class="card card-blue mb-4 shadow-sm">
+            <div class="card-body">
+            <h2 class="card-title text-blue-dark h6">14. Vérifier si une branche a été fusionnée</h2>
+            <pre><code class="language-bash"># Se positionner sur la branche principale (main ou master)
+git checkout main/master
+# ou
+git switch main/master
+
+# Vérifier si la branche feature/xyz a été fusionnée
+git branch --merged
+
+# Si la branche apparaît dans la liste, elle a été fusionnée
+
+# Pour vérifier les branches non fusionnées
+git branch --no-merged
+            </code></pre>
+            </div>
+        </section>
+        {Ressources}
         {Footer}
     </main>
     {BtnTop}
